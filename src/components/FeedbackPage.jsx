@@ -1,16 +1,24 @@
 import React, { Component } from 'react';
+import Logo from './Logo.jsx';
 
 class FeedbackPage extends Component {
   render() {
-    const { name = 'Username', score = 50 } = this.props;
+    const { name = 'Username', score = 50, goal =  100, gift = 'prêmio' } = this.props;
     return (
       <div>
         <p>
-          Parabéns {name}, compra concluída com sucesso.
+          Parabéns {name}!
         </p>
         <p>
-          Faltam apenas {score} para você resgatar seu prêmio.
+          Muito obrigado pela preferência!
         </p>
+        <p>
+          Você tem {score} pontos ou reais acumulados!
+        </p>
+        <p>
+          Faltam apenas {goal} para você resgatar seu {gift}.
+        </p>
+        <Logo />
       </div>
     )
   }
