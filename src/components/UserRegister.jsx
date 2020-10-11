@@ -8,16 +8,20 @@ function register(name, cpf, email, whatsapp, isWhatsapp) {
   localStorage.setItem('customerPurchases', JSON.stringify([...storage, obj]));
 }
 
+const initialState = {
+  name: '',
+  cpf: '',
+  email: '',
+  whatsapp: '',
+  isWhatsapp: true,
+  isRegistered: false,
+}
+
 export default class UserRegister extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      cpf: '',
-      email: '',
-      whatsapp: '',
-      isWhatsapp: true,
-      isRegistered: false,
+      ...initialState
     };
   }
 
@@ -25,6 +29,7 @@ export default class UserRegister extends Component {
     const { name, value } = target;
     this.setState({
       [name]: value,
+      isRegistered: false,
     });
   }
 
@@ -55,7 +60,7 @@ export default class UserRegister extends Component {
             <p>Email</p>
             <input name="email" onChange={(e) => this.changeInput(e)} value={email} />
           </div>
-          <button type="button" onClick={() => { register(name, cpf, whatsapp, email, isWhatsapp); this.setState((state) => ({ isRegistered: !state.isRegistered })); }}>Cadastrar</button>
+          <button type="button" onClick={() => { register(name, cpf, whatsapp, email, isWhatsapp); this.setState({...initialState, isRegistered: true}); }}>Cadastrar</button>
           {isRegistered && <p>Usuário Cadastrado com Sucesso</p>}
         </form>
       </div>

@@ -6,12 +6,9 @@ export class Settings extends Component {
     this.state = {
       byValue: false,
       byPoints: false,
-      byItems: false,
       valueGoal: '',
       pointsGoal: '',
       conversionFactor: '',
-      item: '',
-      itemGoal: '',
     };
   }
 
@@ -24,9 +21,8 @@ export class Settings extends Component {
       <div>
         <p>Defina o modelo de Bonificação</p>
         <div>
-          <button type="button" onClick={() => this.setState({ byValue: true, byPoints: false, byItems: false })}>Acúmulo de Valor</button>
-          <button type="button" onClick={() => this.setState({ byValue: false, byPoints: true, byItems: false })}>Acúmulo de Pontos</button>
-          <button type="button" onClick={() => this.setState({ byValue: false, byPoints: false, byItems: true })}>Acúmulo de Items</button>
+          <button type="button" onClick={() => this.setState({ byValue: true, byPoints: false,  })}>Acúmulo de Valor</button>
+          <button type="button" onClick={() => this.setState({ byValue: false, byPoints: true,  })}>Acúmulo de Pontos</button>
         </div>
       </div>
     );
@@ -56,31 +52,15 @@ export class Settings extends Component {
     );
   }
 
-  renderItemsSettings(item, itemGoal) {
-    return (
-      <div>
-        <div>
-          <p>Defina o Produto da campanha</p>
-          <input onChange={(e) => { this.setState({ item: e.target.value }); }} value={item} />
-        </div>
-        <div>
-          <p>Defina o número de items da Campanha</p>
-          <input onChange={(e) => { this.setState({ itemGoal: e.target.value }); }} value={itemGoal} />
-        </div>
-      </div>
-    );
-  }
-
   render() {
     const {
-      byItems, byValue, byPoints, valueGoal, pointsGoal, conversionFactor, item, itemGoal,
+      byValue, byPoints, valueGoal, pointsGoal, conversionFactor,
     } = this.state;
     return (
       <div>
         {this.renderScoresDefinition()}
         {byValue && this.renderValueSettings(valueGoal)}
         {byPoints && this.renderPointsSettings(pointsGoal, conversionFactor)}
-        {byItems && this.renderItemsSettings(item, itemGoal)}
       </div>
     );
   }

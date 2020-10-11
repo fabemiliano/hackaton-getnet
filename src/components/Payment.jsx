@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 
-function savePurchaseInfo(purchaseValue, cpf) {
+function savePurchaseInfo(purchaseValue, cpf, isCredit) {
   const storage = JSON.parse(localStorage.getItem('customerPurchases'));
   const user = storage.filter((e) => e.cpf === cpf)[0];
   if (!user) return { message: 'not found' };
-  const newUserInfo = { ...user, purchases: [...user.purchases, { purchaseValue, purchaseDate: (new Date().toISOString()) }] };
+  const newUserInfo = { ...user, purchases: [...user.purchases, { purchaseValue, isCredit, purchaseDate: (new Date().toISOString()) }] };
   const newStorage = [...storage.filter((e) => e.cpf !== cpf), newUserInfo];
   localStorage.setItem('customerPurchases', JSON.stringify(newStorage));
   return { message: 'ok' };
@@ -48,7 +48,7 @@ class Payment extends Component {
     );
   }
 
-  renderPurchaseInfo(purchaseValue, cpf) {
+  renderPurchaseInfo(purchaseValue, cpf, isCredit) {
     return (
       <div>
         <div>
@@ -63,7 +63,7 @@ class Payment extends Component {
           type="button"
           onClick={() => {
             console.log(savePurchaseInfo(purchaseValue, cpf));
-            if (savePurchaseInfo(purchaseValue, cpf).message === 'not found') {
+            if (savePurchaseInfo(purchaseValue, cpf, isCredit).message === 'not found') {
               this.setState({ notFound: true });
             } else { this.setState({ paymentInfoScreen: false, feedBackScreen: true }); }
           }}
@@ -78,13 +78,13 @@ class Payment extends Component {
   render() {
     const {
       purchaseValue, cpf, isCredit, insertCardScreen, creditOrDebitScreen, paymentInfoScreen,
-      feedBackScreen, notFound, redirectToRegister,
+      feedBackScreen, notFound, redirectToRegister
     } = this.state;
     return (
       <div>
         {insertCardScreen && this.renderInsertCard()}
         {creditOrDebitScreen && this.renderCreditOrDebit(isCredit)}
-        {paymentInfoScreen && this.renderPurchaseInfo(purchaseValue, cpf)}
+        {paymentInfoScreen && this.renderPurchaseInfo(purchaseValue, cpf, isCredit)}
         {notFound && (
           <div>
             <p>CPF não cadastrado. Deseja cadatrar?</p>
