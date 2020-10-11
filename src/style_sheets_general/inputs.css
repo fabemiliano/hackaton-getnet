@@ -1,0 +1,27 @@
+.form-control {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  border-radius: 0;
+  margin-top: 6vh;
+}
+
+.form-control:focus {
+  transition: 0.2s;
+  border-bottom: 2px solid #de3131;
+  outline: none;
+}
+
+::-webkit-input-placeholder {
+  text-align: center;
+  font-size: 1.2em;
+}
+
+::-moz-placeholder {
+  text-align: center;
+  font-size: 1.2em;
+}
+
+:-ms-input-placeholder {  
+  text-align: center;
+  font-size: 1.2em;
+}

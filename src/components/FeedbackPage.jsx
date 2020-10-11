@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import Logo from './Logo.jsx';
+import HeaderImage from './HeaderImage';
+import './style_sheets/FeedBackPage.css';
+import FbPageCounter from './FbPageCounter'
+import CountUp from 'react-countup';
+
 
 class FeedbackPage extends Component {
   constructor() {
@@ -57,11 +62,11 @@ class FeedbackPage extends Component {
   render() {
     const { name, sumOfPurchase } = this.state;
     return (
-      <div>
-        <p>
+      <div className="feedback-page">
+        <p className="paragraph-1 feedbackpage-line">
           Parabéns {name}!
         </p>
-        <p>
+        <p className="paragraph-2 feedbackpage-line">
           Muito obrigado pela preferência!
         </p>
         <span>

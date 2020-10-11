@@ -5,6 +5,8 @@ import UserRegister from './components/UserRegister';
 import Payment from './components/Payment';
 import SendPromo from './components/SendPromo';
 import Settings from './components/Settings';
+import './style_sheets_general/buttons.css'
+import './style_sheets_general/inputs.css'
 import FeedbackPage from './components/FeedbackPage';
 import DashBoard from './components/DashBoard';
 

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import './style_sheets/UserRegister.css'
+import HeaderImage from './HeaderImage';
 
 function register(name, cpf, email, whatsapp, isWhatsapp) {
   const obj = {
@@ -38,32 +40,30 @@ export default class UserRegister extends Component {
       name, cpf, email, whatsapp, isRegistered, isWhatsapp,
     } = this.state;
     return (
-      <div>
+      <div className="mobile-page">
+        <HeaderImage size="200px" />
         <form>
           <div>
-            <p>Nome</p>
-            <input name="name" onChange={(e) => this.changeInput(e)} value={name} />
+            <input placeholder="Nome" className="form-control" name="name" onChange={(e) => this.changeInput(e)} value={name} />
           </div>
           <div>
-            <p>CPF</p>
-            <input name="cpf" onChange={(e) => this.changeInput(e)} value={cpf} />
+            <input placeholder="CPF" className="form-control" name="cpf" onChange={(e) => this.changeInput(e)} value={cpf} />
           </div>
           <div>
-            <p>Whatsapp</p>
-            <input name="whatsapp" onChange={(e) => this.changeInput(e)} value={whatsapp} />
+            <input placeholder="Whatsapp" className="form-control" name="whatsapp" onChange={(e) => this.changeInput(e)} value={whatsapp} />
           </div>
           <div>
-            <p>Whatsapp</p>
+            <p>Whatsapp?</p>
             <input type="checkbox" onChange={() => this.setState((state) => ({ isWhatsapp: !state.isWhatsapp }))} checked={isWhatsapp} />
           </div>
           <div>
-            <p>Email</p>
-            <input name="email" onChange={(e) => this.changeInput(e)} value={email} />
+            <input placeholder="E-mail" className="form-control" name="email" onChange={(e) => this.changeInput(e)} value={email} />
           </div>
-          <button type="button" onClick={() => { register(name, cpf, whatsapp, email, isWhatsapp); this.setState({...initialState, isRegistered: true}); }}>Cadastrar</button>
-          {isRegistered && <p>Usuário Cadastrado com Sucesso</p>}
+          <button type="button" onClick={() => { register(name, cpf, whatsapp, email, isWhatsapp); this.setState({ ...initialState, isRegistered: true }); }}>Cadastrar</button>
+        <button className="btn btn-register-submit" type="button" onClick={() => { register(name, cpf, whatsapp, email); this.setState((state) => ({ isRegistered: !state.isRegistered })); }}>Cadastrar</button>
+        {isRegistered && <p>Usuário Cadastrado com Sucesso</p>}
         </form>
-      </div>
+      </div >
     );
   }
 }
