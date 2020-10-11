@@ -35,7 +35,7 @@ export default class UserRegister extends Component {
     } = this.state;
     return (
       <div className="mobile-page">
-        <HeaderImage />
+        <HeaderImage size="200px"/>
         <form>
           <div>
             <input placeholder="Nome" className="form-control" name="name" onChange={(e) => this.changeInput(e)} value={name} />

@@ -5,8 +5,9 @@ import LogoWR from '../images/Logo/GetLoyal_w-r.png'
 
 export default class HeaderImage extends React.Component {
   render() {
+    const { size, type } = this.props;
     return (
-      <img src={LogoRW} width="200px" alt="GetLoyal logo" />
+      <img className="logo" src={LogoRW} width={size} alt="GetLoyal logo" />
     )
   }
 }
