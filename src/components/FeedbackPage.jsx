@@ -7,7 +7,7 @@ class FeedbackPage extends Component {
     this.state = {
       name: '',
       lastPurchase: '',
-      sumOfPurchase: '',
+      sumOfPurchase: 0,
     }
   }
 
@@ -24,17 +24,28 @@ class FeedbackPage extends Component {
 
   renderGoal() {
     const promoSettings = JSON.parse(localStorage.getItem('promoSettings'));
-    const { byPoints, byValue, pointsGoal, valueGoal } = promoSettings;
+    const { byPoints, byValue, pointsGoal, valueGoal, conversionFactor } = promoSettings;
     const { sumOfPurchase } = this.state;
+    const convertMoneyToPoints = sumOfPurchase / conversionFactor;
     if (byPoints) return (
-      <p>
-        Faltam apenas <b>{pointsGoal - sumOfPurchase} pontos</b> para você resgatar seu prêmio.
-      </p>
+      <span>
+        <p>
+          Você tem {convertMoneyToPoints} pontos acumulados.
+        </p>
+        <p>
+          Faltam apenas <b>{pointsGoal - convertMoneyToPoints} pontos</b> para você resgatar seu prêmio.
+        </p>
+      </span>
     )
     if (byValue) return (
+      <span>
+        <p>
+          Total consumido R$ {sumOfPurchase} reais.
+        </p>
         <p>
           Faltam apenas <b>R$ {valueGoal - sumOfPurchase}</b> para você resgatar seu prêmio.
         </p>
+      </span>
     )
     return (
       <p>
@@ -52,9 +63,6 @@ class FeedbackPage extends Component {
         </p>
         <p>
           Muito obrigado pela preferência!
-        </p>
-        <p>
-          Você tem {sumOfPurchase} acumulados.
         </p>
         <span>
           {this.renderGoal()}
