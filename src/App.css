@@ -19,6 +19,15 @@
   align-items: center;
 }
 
+.mobile-simulated-page {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  height: 60%;
+  width: 70%;
+  justify-content: space-between;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

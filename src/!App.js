@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import HomePage from './Components/HomePage';
+import HomePage from './components/HomePage';
 import './App.css';
-import ClientsList from './Components/ClientsList';
+import ClientsList from './components/ClientsList';
 
 class App extends Component {
   render() {
