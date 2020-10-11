@@ -9,17 +9,19 @@ import {FeedbackPage, UserRegister, HomePage, ClientsList, Payment, SendPromo, S
 function App() {
   return (
     <main className="App">
-    <BrowserRouter>
-      <Switch>
-        <Route exact path="/register" component={UserRegister} />
-        <Route exact path="/payment" component={Payment} />
-        <Route exact path="/feedback-page" component={FeedbackPage} />
-        <Route exact path="/sendpromo" component={SendPromo} />
-        <Route exact path="/settings" component={Settings} />
-        <Route path="/clientsList" component={ClientsList} />
-        <Route exact path="/" component={HomePage} />
-      </Switch>
-    </BrowserRouter>
+      <section className='mobile-simulated-page'>
+        <BrowserRouter>
+          <Switch>
+            <Route exact path="/register" component={UserRegister} />
+            <Route exact path="/payment" component={Payment} />
+            <Route exact path="/feedback-page" component={FeedbackPage} />
+            <Route exact path="/sendpromo" component={SendPromo} />
+            <Route exact path="/settings" component={Settings} />
+            <Route path="/clientsList" component={ClientsList} />
+            <Route exact path="/" component={HomePage} />
+          </Switch>
+        </BrowserRouter>
+     </section>
     </main>
   );
 }

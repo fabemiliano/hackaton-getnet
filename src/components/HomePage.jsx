@@ -29,7 +29,7 @@ class HomePage extends Component {
   
   render() {
     return (
-      <section className='mobile-simulated-page'>
+      <section>
         <HeaderImage size="150px" />
         <h1>Obrigado Por Estar de Volta!</h1>
         <div className="buy-option-container">

@@ -1,0 +1,13 @@
+.client-list-page {
+  margin-top: -5vh;
+}
+
+.customers-grid {
+  display: flex;
+  flex-flow: row wrap;
+  
+  margin: auto;
+  max-width: 80%;
+  background-color: red;
+  /* position: relative; */
+}

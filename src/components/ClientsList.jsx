@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import apiAnswer from '../utilities/apiAnswer';
+import './style_sheets/ClientsList.css';
+import expensesIcon from './style_sheets/images/expenses_icon.png';
+import voucherIcon from './style_sheets/images/voucher_icon.png';
 
 class ClientsList extends Component {
   constructor() {
@@ -17,24 +20,33 @@ class ClientsList extends Component {
 
   render() {
     return (
-      <section>
+      <section className='client-list-page'>
         <Link to="/">
           Voltar
         </Link>
         <h1> Lista de clientes</h1>
-        {apiAnswer.map((element) => {
-          const { customer: { customer_id }, amount } = element;
+        <section className="customers-grid">
+          {apiAnswer.map((element) => {
+            const { customer: { customer_id }, amount } = element;
 
-          this.handleMap(amount);
+            this.handleMap(amount);
 
-          return (
-            <div key={customer_id}>
-              <h3>ClientID:</h3> <span>{customer_id}</span>
-              <h3>Consumo:</h3> <span>R${amount}</span>
-              <h3>Meta:</h3> <span>R${this.state.Meta}</span>
-            </div>
-          )
-        })}
+            return (
+              <div key={customer_id}>
+                <h3>ClientID:</h3> <span>{customer_id}</span>
+                <div className="expense-container">
+                  <img src={expensesIcon} alt="expense icon" width="40px"/> 
+                  <span>R${amount}</span>
+                </div>
+
+                <div className="goal-container">
+                  <img src={voucherIcon} alt="goal icon" width="40px"/> 
+                  <span>R${this.state.Meta}</span>
+                </div>
+              </div>
+            )
+          })}
+        </section>
       </section>
     )
   }

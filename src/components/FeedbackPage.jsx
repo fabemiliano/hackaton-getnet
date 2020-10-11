@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Logo from './Logo.jsx';
 import HeaderImage from './HeaderImage';
 import './style_sheets/FeedBackPage.css';
-import FbPageCounter from './FbPageCounter'
 import CountUp from 'react-countup';
 
 
@@ -10,7 +9,7 @@ class FeedbackPage extends Component {
   render() {
     const { name = 'Username', score = 50, goal =  100, gift = 'prêmio' } = this.props;
     return (
-      <div className="mobile-simulated-page">
+      <div className="mobile-simulated-page feedback-page">
         <p className="paragraph-1 feedbackpage-line">
           Parabéns {name}!
         </p>
