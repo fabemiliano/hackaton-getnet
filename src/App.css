@@ -54,6 +54,27 @@
   color: #61dafb;
 }
 
+.footer-menu-item {
+  line-height: 1em;
+  background-color: #de3131;
+  color: white;
+  font-size: 0.8em;
+}
+
+.footer-menu-item:focus {
+  outline: none;
+}
+
+.footer-menu-item:active{
+  background-color: white;
+  color: #de3131;
+}
+
+.footer-menu-item a:-webkit-any-link {
+  cursor: pointer;
+  color: white;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
