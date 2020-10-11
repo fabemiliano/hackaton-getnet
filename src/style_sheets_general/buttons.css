@@ -10,6 +10,16 @@
   color: #de3131;
 }
 
+.btn:focus {
+  outline: none;
+
+}
+
+.btn:active {
+  background-color: #de3131;
+  color: white;
+}
+
 .btn-register-submit {
   margin-top: 5vh;
 }
