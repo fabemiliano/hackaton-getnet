@@ -1,5 +1,16 @@
 .App {
   text-align: center;
+  height: 100vh;
+  width: 40%;
+  margin: auto;
+  background-image: url('./images/new-machine-test.png');
+  background-repeat: none;
+  background-position-y: center;
+  background-position-x: -1.5vw;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .App-logo {

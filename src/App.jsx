@@ -3,14 +3,17 @@ import './App.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 // import ApiTester from './components/ApiTester';
 import UserRegister from './components/UserRegister';
+import './style_sheets_general/buttons.css'
 
 function App() {
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route exact path="/register" component={UserRegister} />
-      </Switch>
-    </BrowserRouter>
+    <main className="App">
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/register" component={UserRegister} />
+        </Switch>
+      </BrowserRouter>
+    </main>
   );
 }
 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './style_sheets/UserRegister.css'
 
 function register(name, cpf, email, whatsapp) {
   const obj = {
@@ -32,7 +33,7 @@ export default class UserRegister extends Component {
       name, cpf, email, whatsapp, isRegistered,
     } = this.state;
     return (
-      <div>
+      <div className="mobile-page">
         <form>
           <div>
             <p>Nome</p>
@@ -50,7 +51,7 @@ export default class UserRegister extends Component {
             <p>Email</p>
             <input name="email" onChange={(e) => this.changeInput(e)} value={email} />
           </div>
-          <button type="button" onClick={() => { register(name, cpf, whatsapp, email); this.setState((state) => ({ isRegistered: !state.isRegistered })); }}>Cadastrar</button>
+          <button className="btn-filled" type="button" onClick={() => { register(name, cpf, whatsapp, email); this.setState((state) => ({ isRegistered: !state.isRegistered })); }}>Cadastrar</button>
           {isRegistered && <p>Usuário Cadastrado com Sucesso</p>}
         </form>
       </div>
