@@ -59,11 +59,6 @@ export default class UserRegister extends Component {
             <input type="checkbox" onChange={() => this.setState((state) => ({ isWhatsapp: !state.isWhatsapp }))} checked={isWhatsapp} />
           </div>
           <div>
-            <p>Whatsapp</p>
-            <input type="checkbox" onChange={() => this.setState((state) => ({ isWhatsapp: !state.isWhatsapp }))} checked={isWhatsapp} />
-          </div>
-          <div>
-            <p>Email</p>
             <input placeholder="E-mail" className="form-control" name="email" onChange={(e) => this.changeInput(e)} value={email} />
           </div>
           
