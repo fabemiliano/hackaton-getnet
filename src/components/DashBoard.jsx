@@ -39,7 +39,8 @@ export class DashBoard extends Component {
   }
 
   calculateDailySales(data) {
-    
+    const purchaseDates = data.reduce((acc, e) => [...acc, e.purchases.map(el => ({ date: el.purchaseDate, value: el.purchaseValue }))], [])
+    console.log(purchaseDates)
   }
 
   render() {
@@ -50,7 +51,7 @@ export class DashBoard extends Component {
         <p>Total de Vendas: R${(this.calculateSalesTotal(data)).toFixed(2)}</p>
         <p>Total de Clientes Cadastrados: {data.length}</p>
         {(data.length > 0) && <p>Cliente com maior consumo: {this.calculateBestCustomer(data).name}</p>}
-        {console.log(calculateDailySales(data))}
+        {this.calculateDailySales(data)}
       </div>
     )
   }
