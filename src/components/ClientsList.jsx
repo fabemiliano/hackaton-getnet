@@ -32,15 +32,19 @@ class ClientsList extends Component {
             this.handleMap(amount);
 
             return (
-              <div key={customer_id}>
+              <div key={customer_id} className="customer-container">
                 <h3>ClientID:</h3> <span>{customer_id}</span>
-                <div className="expense-container">
-                  <img src={expensesIcon} alt="expense icon" width="40px"/> 
+                <div className="client-wallet">
+                 <div className="wallet-icon-container">
+                    <img src={expensesIcon} alt="expense icon" width="30px" className="wallet-icon" /> 
+                  </div>
                   <span>R${amount}</span>
                 </div>
 
-                <div className="goal-container">
-                  <img src={voucherIcon} alt="goal icon" width="40px"/> 
+                <div className="client-wallet">
+                  <div className="wallet-icon-container">
+                    <img src={voucherIcon} alt="goal icon" width="30px" className="wallet-icon"/> 
+                  </div>
                   <span>R${this.state.Meta}</span>
                 </div>
               </div>
