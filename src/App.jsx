@@ -6,6 +6,7 @@ import UserRegister from './components/UserRegister';
 import Payment from './components/Payment';
 import Feedback from './components/Feedback';
 import SendPromo from './components/SendPromo';
+import Settings from './components/Settings';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route exact path="/payment" component={Payment} />
         <Route exact path="/feedback" component={Feedback} />
         <Route exact path="/sendpromo" component={SendPromo} />
+        <Route exact path="/settings" component={Settings} />
       </Switch>
     </BrowserRouter>
   );

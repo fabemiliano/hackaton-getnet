@@ -70,6 +70,7 @@ export class SendPromo extends Component {
         {renderPromo && this.renderPromoInfo()}
         {renderEmailList && SendPromo.renderListToSendByEmail(listOfEmails)}
         {renderWhatsappList && SendPromo.renderListToSendByWhatsapp(listOfContacts)}
+        {}
       </div>
     );
   }
