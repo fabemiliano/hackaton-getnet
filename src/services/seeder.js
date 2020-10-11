@@ -2,6 +2,7 @@ const storage = [
   {
     name: 'Jose',
     cpf: '12345678901',
+    email: 'jose@jose.com',
     whatsapp: '49989878789',
     isWhatsapp: true,
     purchases: [{
@@ -16,6 +17,7 @@ const storage = [
   {
     name: 'Maria',
     cpf: '23456789012',
+    email: 'maria@maria.com',
     whatsapp: '49983478789',
     isWhatsapp: true,
     purchases: [{
