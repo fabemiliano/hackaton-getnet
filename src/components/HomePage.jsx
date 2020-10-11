@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './style_sheets/HomePage.css'
+import './style_sheets/HomePage.css';
+import HeaderImage from './HeaderImage';
 
 class HomePage extends Component {
   constructor() {
@@ -29,6 +30,7 @@ class HomePage extends Component {
   render() {
     return (
       <section className='mobile-simulated-page'>
+        <HeaderImage size="150px" />
         <h1>Obrigado Por Estar de Volta!</h1>
         <div className="buy-option-container">
           <input placeholder="Insira seu CPF" onChange={this.handleChange} className='form-control' />

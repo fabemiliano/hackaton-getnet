@@ -1,8 +1,9 @@
 .buy-option-container {
   display: flex;
   flex-flow: column nowrap;
+  margin-top: -10vh;
 }
 
 .buy-option-container input {
-  margin-top: 5vh;
+  margin-top: 4vh;
 }
