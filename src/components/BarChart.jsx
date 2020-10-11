@@ -11,8 +11,8 @@ function convertDate(date) {
 
 function calculateDailySales(data) {
   let purchaseDates = []
-  data.forEach(e => e.purchases.forEach(el => {
-    purchaseDates.push({ date: convertDate(el.purchaseDate.substring(0, 10)), value: el.purchaseValue })
+  data.forEach(({purchases}) => purchases.forEach(({purchaseDate, purchaseValue}) => {
+    purchaseDates.push({ date: convertDate(purchaseDate.substring(0, 10)), value: purchaseValue })
   }));
 
   const dailySales = purchaseDates.reduce((acc, e) => {
@@ -34,14 +34,6 @@ function calculateDailySales(data) {
   // }, [])
   dailySales.sort((a, b) => a.date > b.date ? 1 : -1)
   return dailySales;
-  // return (
-  //   <div>
-  //     {dailySales.map(e =>
-  //       <div>
-  //         <p>{`${e.date} - ${e.value}`}</p>
-  //       </div>)}
-  //   </div>
-  // )
 }
 
 const data = calculateDailySales(JSON.parse(localStorage.getItem('customerPurchases')) || []) 
@@ -52,7 +44,7 @@ export default class Example extends PureComponent {
   render() {
     return (
       <BarChart
-        width={500}
+        width={300}
         height={300}
         data={data}
         margin={{
@@ -63,7 +55,6 @@ export default class Example extends PureComponent {
         <XAxis dataKey="date" />
         <YAxis />
         <Tooltip />
-        <Legend />
         <Bar dataKey="value" fill="#8884d8" />
       </BarChart>
     );
