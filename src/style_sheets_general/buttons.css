@@ -8,6 +8,7 @@
   border-radius: 25rem;
   text-transform: uppercase;
   color: #de3131;
+  border-color: #de3131;
 }
 
 .btn:focus {
@@ -24,6 +25,3 @@
   margin-top: 5vh;
 }
 
-.btn-filled {
-  border-color: #de3131;
-}
