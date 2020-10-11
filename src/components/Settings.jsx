@@ -13,7 +13,7 @@ export class Settings extends Component {
   }
 
   componentDidUpdate() {
-    localStorage.setItem('promoSettins', JSON.stringify(this.state));
+    localStorage.setItem('promoSettings', JSON.stringify(this.state));
   }
 
   renderScoresDefinition() {
