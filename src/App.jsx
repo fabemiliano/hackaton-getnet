@@ -1,19 +1,17 @@
 import React from 'react';
-import './App.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-// import ApiTester from './components/ApiTester';
-import UserRegister from './components/UserRegister';
 import './style_sheets_general/buttons.css'
 import './style_sheets_general/inputs.css'
-import FeedbackPage from './components/FeedbackPage';
 import Payment from './components/Payment';
 import SendPromo from './components/SendPromo';
 import Settings from './components/Settings';
+import './style_sheets_general/links.css'
+import './App.css'
+import {FeedbackPage, UserRegister, HomePage, ClientsList} from './components';
 
 function App() {
   return (
     <main className="App">
-
     <BrowserRouter>
       <Switch>
         <Route exact path="/register" component={UserRegister} />
@@ -21,6 +19,8 @@ function App() {
         <Route exact path="/feedback-page" component={FeedbackPage} />
         <Route exact path="/sendpromo" component={SendPromo} />
         <Route exact path="/settings" component={Settings} />
+        <Route path="/clientsList" component={ClientsList} />
+        <Route exact path="/" component={HomePage} />
       </Switch>
     </BrowserRouter>
     </main>

@@ -1,0 +1,8 @@
+a {
+  text-decoration: none;
+}
+
+a:-webkit-any-link {
+  cursor: pointer;
+  color: #de3131;
+}

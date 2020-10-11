@@ -10,7 +10,7 @@ class FeedbackPage extends Component {
   render() {
     const { name = 'Username', score = 50, goal =  100, gift = 'prêmio' } = this.props;
     return (
-      <div className="feedback-page">
+      <div className="mobile-simulated-page">
         <p className="paragraph-1 feedbackpage-line">
           Parabéns {name}!
         </p>
