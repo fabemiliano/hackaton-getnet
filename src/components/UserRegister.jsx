@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './style_sheets/UserRegister.css'
+import HeaderImage from './HeaderImage';
 
 function register(name, cpf, email, whatsapp) {
   const obj = {
@@ -34,6 +35,7 @@ export default class UserRegister extends Component {
     } = this.state;
     return (
       <div className="mobile-page">
+        <HeaderImage />
         <form>
           <div>
             <p>Nome</p>
