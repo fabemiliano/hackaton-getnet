@@ -18,9 +18,10 @@ export class DashBoard extends Component {
   calculateSalesTotal(data) {
     const purchases = data.map(e => e.purchases)
     const total = purchases.reduce((acc, e) => {
-      const subtotal = e.reduce((acc2, el) => acc2 + el.purchaseValue, 0)
+      const subtotal = e.reduce((acc2, el) => acc2 + Number(el.purchaseValue), 0)
       return acc + subtotal
     }, 0)
+    console.log(total)
     return total;
   }
 

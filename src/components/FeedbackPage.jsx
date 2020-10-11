@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import Logo from './Logo.jsx';
 import HeaderImage from './HeaderImage';
 import './style_sheets/FeedBackPage.css';
-import FbPageCounter from './FbPageCounter'
 import CountUp from 'react-countup';
 
 
@@ -21,7 +19,7 @@ class FeedbackPage extends Component {
     const purchase = storage.pop();
     const { purchases, name } = purchase;
     this.setState({
-      sumOfPurchase: purchases.reduce((acc, value) => acc + value.purchaseValue, 0),
+      sumOfPurchase: purchases.reduce((acc, value) => acc + Number(value.purchaseValue), 0),
       lastPurchase: purchases.pop().purchaseValue,
       name,
     })
@@ -31,25 +29,34 @@ class FeedbackPage extends Component {
     const promoSettings = JSON.parse(localStorage.getItem('promoSettings'));
     const { byPoints, byValue, pointsGoal, valueGoal, conversionFactor } = promoSettings;
     const { sumOfPurchase } = this.state;
+    console.log(sumOfPurchase);
     const convertMoneyToPoints = sumOfPurchase / conversionFactor;
     if (byPoints) return (
       <span>
-        <p>
+        <p className="paragraph-3 feedbackpage-line">
           Você tem {convertMoneyToPoints} pontos acumulados.
         </p>
-        <p>
-          Faltam apenas <b>{pointsGoal - convertMoneyToPoints} pontos</b> para você resgatar seu prêmio.
+        <p className="paragraph-4 feedbackpage-line">
+          Faltam apenas 
         </p>
+        <div className="counter-container">
+          <CountUp end={pointsGoal - convertMoneyToPoints} duration={2} />
+        </div>
+        <p>pontos para você resgatar seu prêmio.</p>
       </span>
     )
     if (byValue) return (
       <span>
-        <p>
-          Total consumido R$ {sumOfPurchase} reais.
+        <p className="paragraph-3 feedbackpage-line">
+          Você consumiu o total de R$ {sumOfPurchase} reais.
         </p>
-        <p>
-          Faltam apenas <b>R$ {valueGoal - sumOfPurchase}</b> para você resgatar seu prêmio.
+        <p className="paragraph-4 feedbackpage-line">
+          Faltam apenas
         </p>
+        <div className="counter-container">
+          R$ <CountUp end={valueGoal - sumOfPurchase} duration={5} />
+        </div>
+        <p>para você resgatar seu prêmio.</p>
       </span>
     )
     return (
@@ -60,7 +67,7 @@ class FeedbackPage extends Component {
   }
 
   render() {
-    const { name, sumOfPurchase } = this.state;
+    const { name } = this.state;
     return (
       <div className="feedback-page">
         <p className="paragraph-1 feedbackpage-line">
@@ -72,7 +79,7 @@ class FeedbackPage extends Component {
         <span>
           {this.renderGoal()}
         </span>
-        <Logo />
+        <HeaderImage size="150px"/>
       </div>
     )
   }

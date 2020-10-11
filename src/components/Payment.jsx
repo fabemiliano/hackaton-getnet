@@ -7,7 +7,7 @@ function savePurchaseInfo(purchaseValue, cpf, isCredit) {
   const storage = JSON.parse(localStorage.getItem('customerPurchases'));
   const user = storage.filter((e) => e.cpf === cpf)[0];
   if (!user) return { message: 'not found' };
-  const newUserInfo = { ...user, purchases: [...user.purchases, { purchaseValue, isCredit, purchaseDate: (new Date().toISOString()) }] };
+  const newUserInfo = { ...user, purchases: [...user.purchases, { purchaseValue: Number(purchaseValue), isCredit, purchaseDate: (new Date().toISOString()) }] };
   const newStorage = [...storage.filter((e) => e.cpf !== cpf), newUserInfo];
   localStorage.setItem('customerPurchases', JSON.stringify(newStorage));
   return { message: 'ok' };

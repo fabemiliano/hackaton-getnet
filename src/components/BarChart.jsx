@@ -4,18 +4,18 @@ import {
 } from 'recharts';
 
 function convertDate(date) {
-  const day = date.substring(8,10)
-  const month = date.substring(5,7)
+  const day = date.substring(8, 10)
+  const month = date.substring(5, 7)
   return `${day}/${month}`
 }
 
 function calculateDailySales(data) {
   let purchaseDates = []
-  data.forEach(e => e.purchases.forEach(el => {
-    purchaseDates.push({ date: convertDate(el.purchaseDate.substring(0, 10)), value: el.purchaseValue })
+  data.forEach(({ purchases }) => purchases.forEach(({ purchaseDate, purchaseValue }) => {
+    purchaseDates.push({ date: convertDate(purchaseDate.substring(0, 10)), value: purchaseValue })
   }));
 
-    // const purchaseDates = data.reduce((acc, e) => {
+  // const purchaseDates = data.reduce((acc, e) => {
   //   return [...acc, [...e.purchases.map(el => ({ date: el.purchaseDate, value: el.purchaseValue }))]]
   //   // [...acc, e.purchases.map(el => ({ date: el.purchaseDate, value: el.purchaseValue }))]
   // }, [])
