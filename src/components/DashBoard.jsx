@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import BarChart from './BarChart';
 
 export class DashBoard extends Component {
 
@@ -34,14 +35,10 @@ export class DashBoard extends Component {
       }
     })
     const bestBuyer = data.filter(e => e.purchases.reduce((acc, el) => acc + el.purchaseValue, 0) === topSale);
-    console.log(bestBuyer[0]);
     return bestBuyer[0];
   }
 
-  calculateDailySales(data) {
-    const purchaseDates = data.reduce((acc, e) => [...acc, e.purchases.map(el => ({ date: el.purchaseDate, value: el.purchaseValue }))], [])
-    console.log(purchaseDates)
-  }
+  
 
   render() {
     const { data } = this.state;
@@ -51,7 +48,7 @@ export class DashBoard extends Component {
         <p>Total de Vendas: R${(this.calculateSalesTotal(data)).toFixed(2)}</p>
         <p>Total de Clientes Cadastrados: {data.length}</p>
         {(data.length > 0) && <p>Cliente com maior consumo: {this.calculateBestCustomer(data).name}</p>}
-        {this.calculateDailySales(data)}
+        <BarChart />
       </div>
     )
   }
