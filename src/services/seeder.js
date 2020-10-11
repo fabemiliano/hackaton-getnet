@@ -111,4 +111,12 @@ const storage = [
   },
 ];
 
+export const promoSettings = {
+  byPoints: false,
+  byValue: true,
+  conversionFactor: 10,
+  pointsGoal: 20,
+  valueGoal: 200,
+}
+
 export default storage;
