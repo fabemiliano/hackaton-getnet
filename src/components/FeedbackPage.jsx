@@ -19,7 +19,7 @@ class FeedbackPage extends Component {
     const purchase = storage.pop();
     const { purchases, name } = purchase;
     this.setState({
-      sumOfPurchase: purchases.reduce((acc, value) => acc + value.purchaseValue, 0),
+      sumOfPurchase: purchases.reduce((acc, value) => acc + Number(value.purchaseValue), 0),
       lastPurchase: purchases.pop().purchaseValue,
       name,
     })
@@ -29,6 +29,7 @@ class FeedbackPage extends Component {
     const promoSettings = JSON.parse(localStorage.getItem('promoSettings'));
     const { byPoints, byValue, pointsGoal, valueGoal, conversionFactor } = promoSettings;
     const { sumOfPurchase } = this.state;
+    console.log(sumOfPurchase);
     const convertMoneyToPoints = sumOfPurchase / conversionFactor;
     if (byPoints) return (
       <span>
