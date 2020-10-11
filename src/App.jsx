@@ -9,13 +9,14 @@ import FeedbackPage from './components/FeedbackPage';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route exact path="/register" component={UserRegister} />
-        <Route exact path="/feedback-page" component={FeedbackPage} />
-      </Switch>
-    </BrowserRouter>
->>>>>>> 1bfd93a01b4ceb05cb7bfa4c1af55ea0087a858c
+    <main className="App">
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/register" component={UserRegister} />
+          <Route exact path="/feedback-page" component={FeedbackPage} />
+        </Switch>
+      </BrowserRouter>
+    </main>
   );
 }
 
