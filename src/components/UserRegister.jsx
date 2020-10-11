@@ -50,7 +50,7 @@ export default class UserRegister extends Component {
             <input placeholder="CPF" className="form-control" name="cpf" onChange={(e) => this.changeInput(e)} value={cpf} />
           </div>
           <div>
-            <input placeholder="Whatsapp" className="form-control" name="whatsapp" onChange={(e) => this.changeInput(e)} value={whatsapp} />
+            <input placeholder="Telefone" className="form-control" name="whatsapp" onChange={(e) => this.changeInput(e)} value={whatsapp} />
           </div>
           <div>
             <p>Whatsapp?</p>
@@ -59,7 +59,6 @@ export default class UserRegister extends Component {
           <div>
             <input placeholder="E-mail" className="form-control" name="email" onChange={(e) => this.changeInput(e)} value={email} />
           </div>
-          <button type="button" onClick={() => { register(name, cpf, whatsapp, email, isWhatsapp); this.setState({ ...initialState, isRegistered: true }); }}>Cadastrar</button>
         <button className="btn btn-register-submit" type="button" onClick={() => { register(name, cpf, whatsapp, email); this.setState((state) => ({ isRegistered: !state.isRegistered })); }}>Cadastrar</button>
         {isRegistered && <p>Usuário Cadastrado com Sucesso</p>}
         </form>

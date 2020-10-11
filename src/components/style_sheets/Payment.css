@@ -1,0 +1,18 @@
+.payment img {
+  width: 300px;
+  position: absolute;
+  right: -300px;
+  bottom: 200px;
+  z-index: -1;
+  animation: animate 3s linear forwards;
+  transform: translateX(300px)
+}
+
+@keyframes animate {
+  0% {
+    right: -300px;
+  }
+  100% {
+    right: 50%;
+  }
+}

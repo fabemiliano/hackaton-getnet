@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
+import card from '../images/card.png';
+import './style_sheets/Payment.css';
 
 function savePurchaseInfo(purchaseValue, cpf, isCredit) {
   const storage = JSON.parse(localStorage.getItem('customerPurchases'));
@@ -27,11 +29,17 @@ class Payment extends Component {
     };
   }
 
+  componentDidMount() {
+    setTimeout(() =>{
+      this.setState({insertCardScreen: false, creditOrDebitScreen: true})
+    }, 4000)
+  }
+
   renderInsertCard() {
     return (
       <div>
         <p>Insira o Cartão</p>
-        <button type="button" onClick={() => this.setState({ insertCardScreen: false, creditOrDebitScreen: true })}>Ok</button>
+        {/* <button type="button" onClick={() => this.setState({ insertCardScreen: false, creditOrDebitScreen: true })}>Ok</button> */}
       </div>
     );
   }
@@ -81,17 +89,20 @@ class Payment extends Component {
       feedBackScreen, notFound, redirectToRegister
     } = this.state;
     return (
-      <div>
-        {insertCardScreen && this.renderInsertCard()}
-        {creditOrDebitScreen && this.renderCreditOrDebit(isCredit)}
-        {paymentInfoScreen && this.renderPurchaseInfo(purchaseValue, cpf, isCredit)}
-        {notFound && (
-          <div>
-            <p>CPF não cadastrado. Deseja cadatrar?</p>
-            <button type="button" onClick={() => this.setState({ redirectToRegister: true })}>Sim</button>
-            <button type="button" onClick={() => this.setState({ feedBackScreen: true })}>Não</button>
-          </div>
-        )}
+      <div className="payment">
+        <div>
+          {insertCardScreen && this.renderInsertCard()}
+          {creditOrDebitScreen && this.renderCreditOrDebit(isCredit)}
+          {paymentInfoScreen && this.renderPurchaseInfo(purchaseValue, cpf, isCredit)}
+          {notFound && (
+            <div>
+              <p>CPF não cadastrado. Deseja cadatrar?</p>
+              <button type="button" onClick={() => this.setState({ redirectToRegister: true })}>Sim</button>
+              <button type="button" onClick={() => this.setState({ feedBackScreen: true })}>Não</button>
+            </div>
+          )}
+        </div>
+        <img src={card} />
         {feedBackScreen && <Redirect to="/feedback" />}
         {redirectToRegister && <Redirect to="/register" />}
       </div>

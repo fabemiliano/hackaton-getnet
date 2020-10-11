@@ -12,16 +12,18 @@ import DashBoard from './components/DashBoard';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route exact path="/register" component={UserRegister} />
-        <Route exact path="/payment" component={Payment} />
-        <Route exact path="/sendpromo" component={SendPromo} />
-        <Route exact path="/settings" component={Settings} />
-        <Route exact path="/feedback" component={FeedbackPage} />
-        <Route exact path="/dashboard" component={DashBoard} />
-      </Switch>
-    </BrowserRouter>
+    <main className="App">
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/register" component={UserRegister} />
+          <Route exact path="/payment" component={Payment} />
+          <Route exact path="/sendpromo" component={SendPromo} />
+          <Route exact path="/settings" component={Settings} />
+          <Route exact path="/feedback" component={FeedbackPage} />
+          <Route exact path="/dashboard" component={DashBoard} />
+        </Switch>
+      </BrowserRouter>
+    </main>
   );
 }
 
