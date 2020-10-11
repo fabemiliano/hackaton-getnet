@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import Logo from './Logo.jsx';
 import HeaderImage from './HeaderImage';
 import './style_sheets/FeedBackPage.css';
-import FbPageCounter from './FbPageCounter'
 import CountUp from 'react-countup';
 
 
@@ -68,7 +66,7 @@ class FeedbackPage extends Component {
   }
 
   render() {
-    const { name, sumOfPurchase } = this.state;
+    const { name } = this.state;
     return (
       <div className="feedback-page">
         <p className="paragraph-1 feedbackpage-line">
