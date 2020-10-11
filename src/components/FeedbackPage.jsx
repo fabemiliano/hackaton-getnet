@@ -23,13 +23,7 @@ class FeedbackPage extends Component {
   }
 
   renderGoal() {
-    // const promoSettings = JSON.parse(localStorage.getItem('promoSettings'));
-    const promoSettings = {
-      byPoints: true,
-      byValue: false,
-      pointsGoal: 200,
-      valueGoal: 100,
-    }
+    const promoSettings = JSON.parse(localStorage.getItem('promoSettings'));
     const { byPoints, byValue, pointsGoal, valueGoal } = promoSettings;
     const { sumOfPurchase } = this.state;
     if (byPoints) return (
