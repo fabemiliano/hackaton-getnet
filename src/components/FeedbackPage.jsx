@@ -29,7 +29,6 @@ class FeedbackPage extends Component {
     const promoSettings = JSON.parse(localStorage.getItem('promoSettings'));
     const { byPoints, byValue, pointsGoal, valueGoal, conversionFactor } = promoSettings;
     const { sumOfPurchase } = this.state;
-    console.log(sumOfPurchase);
     const convertMoneyToPoints = sumOfPurchase / conversionFactor;
     if (byPoints) return (
       <span>
