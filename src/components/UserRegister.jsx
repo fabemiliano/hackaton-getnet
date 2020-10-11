@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-function register(name, cpf, email, whatsapp) {
+function register(name, cpf, email, whatsapp, isWhatsapp) {
   const obj = {
-    name, cpf, email, whatsapp, purchases: [],
+    name, cpf, email, whatsapp, isWhatsapp, purchases: [],
   };
   const storage = JSON.parse(localStorage.getItem('customerPurchases')) || [];
   localStorage.setItem('customerPurchases', JSON.stringify([...storage, obj]));
@@ -16,6 +16,7 @@ export default class UserRegister extends Component {
       cpf: '',
       email: '',
       whatsapp: '',
+      isWhatsapp: true,
       isRegistered: false,
     };
   }
@@ -29,7 +30,7 @@ export default class UserRegister extends Component {
 
   render() {
     const {
-      name, cpf, email, whatsapp, isRegistered,
+      name, cpf, email, whatsapp, isRegistered, isWhatsapp,
     } = this.state;
     return (
       <div>
@@ -47,10 +48,14 @@ export default class UserRegister extends Component {
             <input name="whatsapp" onChange={(e) => this.changeInput(e)} value={whatsapp} />
           </div>
           <div>
+            <p>Whatsapp</p>
+            <input type="checkbox" onChange={() => this.setState((state) => ({ isWhatsapp: !state.isWhatsapp }))} checked={isWhatsapp} />
+          </div>
+          <div>
             <p>Email</p>
             <input name="email" onChange={(e) => this.changeInput(e)} value={email} />
           </div>
-          <button type="button" onClick={() => { register(name, cpf, whatsapp, email); this.setState((state) => ({ isRegistered: !state.isRegistered })); }}>Cadastrar</button>
+          <button type="button" onClick={() => { register(name, cpf, whatsapp, email, isWhatsapp); this.setState((state) => ({ isRegistered: !state.isRegistered })); }}>Cadastrar</button>
           {isRegistered && <p>Usuário Cadastrado com Sucesso</p>}
         </form>
       </div>
