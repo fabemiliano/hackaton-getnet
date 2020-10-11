@@ -18,6 +18,7 @@ ReactDOM.render(
 serviceWorker.unregister();
 
 if (!JSON.parse(localStorage.getItem('customerPurchases'))) {
+  console.log(storage)
   localStorage.setItem('customerPurchases', JSON.stringify(storage));
 }
 
