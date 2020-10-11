@@ -1,0 +1,54 @@
+@keyframes paragraph {
+  0%   {margin-left: -50vw; color: white;}
+  100% {margin-left: 0vw;}
+}
+
+.feedback-page {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  height: 80%;
+  width: 70%;
+}
+
+.feedback-page .feedbackpage-line {
+  margin-top: 4vh;
+}
+
+.paragraph-1 {
+  animation-name: paragraph;
+  animation-duration: 2s;
+}
+
+.paragraph-2 {
+  animation-name: paragraph;
+  animation-duration: 3s;
+}
+
+.paragraph-3 {
+  animation-name: paragraph;
+  animation-duration: 4s;
+}
+
+.paragraph-4 {
+  animation-name: paragraph;
+  animation-duration: 5s;
+}
+
+.counter-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  background-color: rgb(238, 28, 37);
+  width: 65px;
+  height: 65px;
+  box-shadow: 3px 5px rgba(238, 28, 39, 0.4);
+  color: white;
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+.logo {
+  margin-top: 5vh;
+}
