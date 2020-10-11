@@ -9,6 +9,15 @@ function register(name, cpf, email, whatsapp, isWhatsapp) {
   localStorage.setItem('customerPurchases', JSON.stringify([...storage, obj]));
 }
 
+const initialState = {
+  name: '',
+  cpf: '',
+  email: '',
+  whatsapp: '',
+  isWhatsapp: true,
+  isRegistered: false,
+}
+
 export default class UserRegister extends Component {
   constructor(props) {
     super(props);
@@ -26,6 +35,7 @@ export default class UserRegister extends Component {
     const { name, value } = target;
     this.setState({
       [name]: value,
+      isRegistered: false,
     });
   }
 
@@ -49,6 +59,11 @@ export default class UserRegister extends Component {
             <input type="checkbox" onChange={() => this.setState((state) => ({ isWhatsapp: !state.isWhatsapp }))} checked={isWhatsapp} />
           </div>
           <div>
+            <p>Whatsapp</p>
+            <input type="checkbox" onChange={() => this.setState((state) => ({ isWhatsapp: !state.isWhatsapp }))} checked={isWhatsapp} />
+          </div>
+          <div>
+            <p>Email</p>
             <input placeholder="E-mail" className="form-control" name="email" onChange={(e) => this.changeInput(e)} value={email} />
           </div>
           

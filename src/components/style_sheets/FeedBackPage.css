@@ -5,7 +5,7 @@
 
 
 .mobile-simulated-page .feedbackpage-line {
-  margin-top: 4vh;
+  margin-top: 25px;
 }
 
 .paragraph-1 {
@@ -40,6 +40,7 @@
   color: white;
   font-size: 1.3em;
   font-weight: bold;
+  margin: auto;
 }
 
 .feedback-page .logo {

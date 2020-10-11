@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import storage from './services/seeder';
+import storage, { promoSettings } from './services/seeder';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -16,6 +16,12 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
+
 if (!JSON.parse(localStorage.getItem('customerPurchases'))) {
   localStorage.setItem('customerPurchases', JSON.stringify(storage));
 }
+
+if (!JSON.parse(localStorage.getItem('promoSettings'))) {
+  localStorage.setItem('promoSettings', JSON.stringify(promoSettings));
+}
+
