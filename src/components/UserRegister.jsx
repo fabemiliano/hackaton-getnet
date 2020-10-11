@@ -38,22 +38,18 @@ export default class UserRegister extends Component {
         <HeaderImage />
         <form>
           <div>
-            <p>Nome</p>
-            <input name="name" onChange={(e) => this.changeInput(e)} value={name} />
+            <input placeholder="Nome" className="form-control" name="name" onChange={(e) => this.changeInput(e)} value={name} />
           </div>
           <div>
-            <p>CPF</p>
-            <input name="cpf" onChange={(e) => this.changeInput(e)} value={cpf} />
+            <input placeholder="CPF" className="form-control" name="cpf" onChange={(e) => this.changeInput(e)} value={cpf} />
           </div>
           <div>
-            <p>Whatsapp</p>
-            <input name="whatsapp" onChange={(e) => this.changeInput(e)} value={whatsapp} />
+            <input placeholder="Whatsapp" className="form-control" name="whatsapp" onChange={(e) => this.changeInput(e)} value={whatsapp} />
           </div>
           <div>
-            <p>Email</p>
-            <input name="email" onChange={(e) => this.changeInput(e)} value={email} />
+            <input placeholder="E-mail" className="form-control" name="email" onChange={(e) => this.changeInput(e)} value={email} />
           </div>
-          <button className="btn-filled" type="button" onClick={() => { register(name, cpf, whatsapp, email); this.setState((state) => ({ isRegistered: !state.isRegistered })); }}>Cadastrar</button>
+          <button className="btn btn-register-submit btn-filled" type="button" onClick={() => { register(name, cpf, whatsapp, email); this.setState((state) => ({ isRegistered: !state.isRegistered })); }}>Cadastrar</button>
           {isRegistered && <p>Usuário Cadastrado com Sucesso</p>}
         </form>
       </div>

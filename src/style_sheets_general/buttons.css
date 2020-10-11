@@ -1,3 +1,19 @@
-/* .btn-filled {
-  background-color: ;
-} */
+.btn {
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 25rem;
+  text-transform: uppercase;
+  color: #de3131;
+}
+
+.btn-register-submit {
+  margin-top: 5vh;
+}
+
+.btn-filled {
+  border-color: #de3131;
+}

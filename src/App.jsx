@@ -4,6 +4,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 // import ApiTester from './components/ApiTester';
 import UserRegister from './components/UserRegister';
 import './style_sheets_general/buttons.css'
+import './style_sheets_general/inputs.css'
 
 function App() {
   return (
