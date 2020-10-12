@@ -9,7 +9,7 @@ class ProgramConfigurations extends React.Component {
 
       let {start, end, goal, type, reward, alertMsg} = {start: "", end: "", goal: "", type: "", reward: "", alertMsg: ""}
 
-      if(localStorage.programConfig !== null) {
+      if(localStorage.programConfig) {
         start = JSON.parse(localStorage.programConfig).start;
         end = JSON.parse(localStorage.programConfig).end;
         goal = JSON.parse(localStorage.programConfig).goal;
@@ -101,8 +101,9 @@ class ProgramConfigurations extends React.Component {
       reward: reward,
       type: type,
     }
-
+    console.log(newObject)
     localStorage.programConfig = JSON.stringify(newObject);
+    console.log(localStorage.programConfig)
   }
 
   render() {
