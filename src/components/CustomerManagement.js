@@ -33,8 +33,8 @@ class CustomerManagement extends React.Component {
 
     let storage = JSON.parse(localStorage.customerPurchases);
 
-    const programConfig = JSON.parse(localStorage.programConfig);
-    const businessConfig = JSON.parse(localStorage.businessConfig);
+    const programConfig = JSON.parse(localStorage.programConfig) || {goal: ''};
+    const businessConfig = JSON.parse(localStorage.businessConfig) || {start: '', end: ''};
 
     // Customer Filters Heated / Warm / Cold
     const { goal } = programConfig;
