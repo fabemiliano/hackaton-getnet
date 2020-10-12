@@ -4,8 +4,9 @@ import './style_sheets_general/buttons.css'
 import './style_sheets_general/inputs.css'
 import './style_sheets_general/links.css'
 import './App.css'
-import {FeedbackPage, UserRegister, HomePage, ClientsList, Payment, SendPromo, Settings, CustomerManagement, Notifier, BusinessConfigurations, ProgramConfigurations} 
+import {FeedbackPage, UserRegister, HomePage, ClientsList, Payment, SendPromo, Settings, CustomerManagement, Notifier, BusinessConfigurations} 
 from './components';
+import ProgramConfigurations from './components/ProgramConfiguration';
 
 function App() {
   return (

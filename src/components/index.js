@@ -11,7 +11,7 @@ export {default as BusinessConfigurations} from './BusinessConfigurations';
 export {default as Customer} from './Customer';
 export {default as CustomerManagement} from './CustomerManagement';
 export {default as Notifier} from './Notifier';
-export {default as ProgramConfigurations} from './ProgramConfiguration';
+export {default as ProgramConfiguration} from './ProgramConfiguration.js';
 
 
 

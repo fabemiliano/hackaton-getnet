@@ -3,8 +3,18 @@ import React from 'react';
 class ProgramConfigurations extends React.Component {
   constructor() {
     super();
-      const { start = '', end = '', goal = '', type = '', reward = '', alertMsg = '' } = JSON.parse(localStorage.programConfig);
-    
+
+      let {start, end, goal, type, reward, alertMsg} = {start: "", end: "", goal: "", type: "", reward: "", alertMsg: ""}
+
+      if(localStorage.programConfig !== null) {
+        start = JSON.parse(localStorage.programConfig).start;
+        end = JSON.parse(localStorage.programConfig).end;
+        goal = JSON.parse(localStorage.programConfig).goal;
+        type = JSON.parse(localStorage.programConfig).type;
+        reward = JSON.parse(localStorage.programConfig).reward;
+        alertMsg = JSON.parse(localStorage.programConfig).alertMsg;
+      }
+        
     this.state = {
       start: start,
       end: end,

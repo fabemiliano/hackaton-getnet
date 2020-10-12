@@ -25,3 +25,5 @@ if (!JSON.parse(localStorage.getItem('promoSettings'))) {
   localStorage.setItem('promoSettings', JSON.stringify(promoSettings));
 }
 
+
+

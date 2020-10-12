@@ -1,18 +1,17 @@
 import React from 'react';
-import { HashLink as Link } from 'react-router-hash-link';
 import Customer from './Customer';
 import './style_sheets/CustomerManagement.css';
 
 class CustomerManagement extends React.Component {
   constructor() {
     super();
-    this.state = {customersToShow: JSON.parse(localStorage.base)};
+    this.state = {customersToShow: JSON.parse(localStorage.customerPurchases)};
     this.handleState = this.handleState.bind(this);
   }
 
   handleState({ target }) {
     const { id } = target;
-    const allCustomers = JSON.parse(localStorage.base);
+    const allCustomers = JSON.parse(localStorage.customerPurchases);
     const customersArray = (id !== 'all') ? allCustomers.filter(customer => customer.temperature === id) : allCustomers;
     this.setState({ customersToShow: customersArray });
   }
@@ -30,38 +29,8 @@ class CustomerManagement extends React.Component {
   }
 
   render() {
-    let storage = [
-      {
-        name: 'Jose',
-        cpf: '12345678901',
-        email: 'jose@jose.com',
-        whatsapp: '49989878789',
-        isWhatsapp: true,
-        purchases: [{
-          purchaseValue: 20,
-          purchaseDate: '2020-10-09T13:16:27.891Z',
-        },
-        {
-          purchaseValue: 30,
-          purchaseDate: '2020-10-11T13:16:27.891Z',
-        }],
-      },
-      {
-        name: 'Maria',
-        cpf: '23456789012',
-        email: 'maria@maria.com',
-        whatsapp: '49983478789',
-        isWhatsapp: true,
-        purchases: [{
-          purchaseValue: 40,
-          purchaseDate: '2020-10-06T13:16:27.891Z',
-        },
-        {
-          purchaseValue: 20,
-          purchaseDate: '2020-10-07T13:16:27.891Z',
-        }],
-      },
-    ];
+
+    let storage = JSON.parse(localStorage.customerPurchases);
 
     const programConfig = JSON.parse(localStorage.programConfig);
     const businessConfig = JSON.parse(localStorage.businessConfig);
@@ -102,7 +71,7 @@ class CustomerManagement extends React.Component {
     });
 
     // Salvando no storage
-    localStorage.base = JSON.stringify(storage);
+    localStorage.customerPurchases = JSON.stringify(storage);
 
     return(
       <div>     
