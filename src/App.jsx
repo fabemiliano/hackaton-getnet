@@ -4,7 +4,8 @@ import './style_sheets_general/buttons.css'
 import './style_sheets_general/inputs.css'
 import './style_sheets_general/links.css'
 import './App.css'
-import {FeedbackPage, UserRegister, HomePage, ClientsList, Payment, SendPromo, Settings} from './components';
+import {FeedbackPage, UserRegister, HomePage, ClientsList, Payment, SendPromo, Settings, CustomerManagement, Notifier, BusinessConfigurations, ProgramConfigurations} 
+from './components';
 
 function App() {
   return (
@@ -18,6 +19,10 @@ function App() {
             <Route exact path="/sendpromo" component={SendPromo} />
             <Route exact path="/settings" component={Settings} />
             <Route path="/clientsList" component={ClientsList} />
+            <Route path="/customer-management/notifer/:cpf" component={ Notifier } />
+            <Route path="/customer-management" component={ CustomerManagement } />
+            <Route path="/business-configurations" component={ BusinessConfigurations } />
+            <Route path="/program-configuration" component={ ProgramConfigurations } />
             <Route exact path="/" component={HomePage} />
           </Switch>
         </BrowserRouter>

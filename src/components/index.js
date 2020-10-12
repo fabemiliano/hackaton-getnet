@@ -7,6 +7,15 @@ export {default as FeedbackPage} from './FeedbackPage';
 export {default as Payment} from './Payment';
 export {default as SendPromo} from './SendPromo';
 export {default as Settings} from './Settings';
+export {default as BusinessConfigurations} from './BusinessConfigurations';
+export {default as Customer} from './Customer';
+export {default as CustomerManagement} from './CustomerManagement';
+export {default as Notifier} from './Notifier';
+export {default as ProgramConfigurations} from './ProgramConfiguration';
+
+
+
+
 
 
 

@@ -1,0 +1,11 @@
+.customer-heated {
+  background-color: green;
+}
+
+.customer-warm {
+  background-color: rgba(0, 0, 255, 0.808);
+}
+
+.customer-cold {
+  background-color: red;
+}
