@@ -39,3 +39,11 @@ registradas pelo aplicativo gerando a base de dados.
 A proposta apresentada é de um aplicativo que rode no POS Android da Getnet.
 
 Para fins de prototipação o aplicativo foi feito em React JS, com auxílio de libs externas tais quais: [Recharts](https://recharts.org/en-US/) e [Count Up](https://www.npmjs.com/package/react-countup)
+
+
+## Instalação
+
+A aplicação e as dependências externas podem ser instalada localmente:
+`npm i`
+Para rodar a aplicação:
+`npm start`
