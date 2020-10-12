@@ -28,7 +28,7 @@ function App() {
   return (
     <main className="App">
       <section className="mobile-simulated-page">
-        <BrowserRouter basename="/">
+        <BrowserRouter>
           <Switch>
             <Route exact path="/dashboard" component={DashBoard} />
             <Route exact path="/register" component={UserRegister} />
