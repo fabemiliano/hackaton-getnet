@@ -34,7 +34,7 @@ class BusinessConfigurations extends React.Component {
             <input id="recurrenceCycle" type="number" placeholder="Insira o número de dias" value={this.state.recurrenceCycle} name="recurrenceCycle" onChange={this.handleState} />
           </div>
           <div>
-            <label htmlFor="averageTicket">Ciclo médio de recorrência</label>
+            <label htmlFor="averageTicket">Tcket médio</label>
             <input id="averageTicket" type="number" placeholder="Insira o valor em reais" value={this.state.averageTicket} name="averageTicket" onChange={this.handleState} />
           </div>
           <button onClick={this.saveOnStorage}>Salvar</button>

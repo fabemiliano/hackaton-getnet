@@ -13,120 +13,96 @@ class CustomerManagement extends React.Component {
   handleState({ target }) {
     const { id } = target;
     const allCustomers = JSON.parse(localStorage.base);
-    const customersArray = (id != 'all') ? allCustomers.filter(customer => customer.temperature === id) : allCustomers;
+    const customersArray = (id !== 'all') ? allCustomers.filter(customer => customer.temperature === id) : allCustomers;
     this.setState({ customersToShow: customersArray });
   }
 
   calculateDateDiff(pastDate) {
     const actualDate = new Date();
   
-    const dataStamp = pastDate.split('/');
+    const dataStamp = pastDate.split('-');
     const lastVisitDate = new Date();
-    lastVisitDate.setDate(dataStamp[0]);
-    lastVisitDate.setMonth(dataStamp[1]-1);
-    lastVisitDate.setYear(dataStamp[2]);
-  
+    lastVisitDate.setDate(dataStamp[2]);
+    lastVisitDate.setMonth(dataStamp[1]);
+    lastVisitDate.setYear(dataStamp[0]);
     const diff = actualDate.getTime() - lastVisitDate.getTime();
     return diff;
   }
 
   render() {
-    let baseSimulada = [
-        {
-          name: 'João',
-          cpf: '110.013.356-17',
-          phone: '(34) 99689-5183',
-          whatsapp: true,
-          email: 'joão@gmail.com',
-          buys: [{
-              total: 100,
-              date: '8/10/2020',
-              payment: 'credito',
-            },
-            {
-              total: 100,
-              date: '7/9/2020',
-              payment: 'debito',
-            },
-          ],
-          lastVisit: '8/10/2020',
-          temperature: '',
+    let storage = [
+      {
+        name: 'Jose',
+        cpf: '12345678901',
+        email: 'jose@jose.com',
+        whatsapp: '49989878789',
+        isWhatsapp: true,
+        purchases: [{
+          purchaseValue: 20,
+          purchaseDate: '2020-10-09T13:16:27.891Z',
         },
         {
-          name: 'Pedro',
-          cpf: '110.400.356-17',
-          phone: '(11) 99909-7865',
-          whatsapp: false,
-          email: 'pedro@gmail.com',
-          buys: [{
-            total: 60,
-            date: '28/9/2020',
-            payment: 'credito',
-          },
-          {
-            total: 10,
-            date: '7/9/2020',
-            payment: 'credito',
-          },
-        ],
-          lastVisit: '28/9/2020',
-          temperature: '',
+          purchaseValue: 30,
+          purchaseDate: '2020-10-11T13:16:27.891Z',
+        }],
+      },
+      {
+        name: 'Maria',
+        cpf: '23456789012',
+        email: 'maria@maria.com',
+        whatsapp: '49983478789',
+        isWhatsapp: true,
+        purchases: [{
+          purchaseValue: 40,
+          purchaseDate: '2020-10-06T13:16:27.891Z',
         },
         {
-          name: 'Joana',
-          cpf: '110.400.356-17',
-          phone: '(11) 99909-7865',
-          whatsapp: true,
-          email: 'joana@gmail.com',
-          buys: [{
-            total: 60,
-            date: '3/8/2020',
-            payment: 'credito',
-          },
-          {
-            total: 10,
-            date: '7/9/2019',
-            payment: 'credito',
-          },
-        ],
-          lastVisit: '3/8/2020',
-          temperature: '',
-        },
+          purchaseValue: 20,
+          purchaseDate: '2020-10-07T13:16:27.891Z',
+        }],
+      },
     ];
 
-    const programaFidelidade = {
-      type: 'valor-acumulado',
-      goal: 400,
-      reward: 'Carteira de couro',
-      start: '12/11/2020',
-      end: '24/12/2020',
-    };
-
-    const configNegocio = {
-      cicloMedioRetornoDoCliente: 10,
-      ticketMedio: 80,
-    };
+    const programConfig = JSON.parse(localStorage.programConfig);
+    const businessConfig = JSON.parse(localStorage.businessConfig);
 
     // Customer Filters Heated / Warm / Cold
-    const limitHeated = configNegocio.cicloMedioRetornoDoCliente * 24 * 3600 * 1000;
-    const limitWarm = 2* configNegocio.cicloMedioRetornoDoCliente * 24 * 3600 * 1000;
+    const { goal } = programConfig;
+    let { start, end } = programConfig;
+    const { averageTicket, recurrenceCycle } = businessConfig;
+    const estimatedVisits = goal/averageTicket;
+    
+    const endDateComponents = end.split('-');
+    let newEndDate = new Date();
+    newEndDate.setDate(endDateComponents[2]);
+    newEndDate.setMonth(endDateComponents[1]-1);
+    newEndDate.setYear(endDateComponents[0]);
+    end = newEndDate;
+    const startDateComponents = start.split('-');
+    let newStartDate = new Date();
+    newStartDate.setDate(startDateComponents[2]);
+    newStartDate.setMonth(startDateComponents[1]-1);
+    newStartDate.setYear(startDateComponents[0]);
+    start = newStartDate;
+    const programDuration = (end.getTime() - start.getTime())/(24*3600*1000);
 
-    baseSimulada.forEach((customer, index) => {
-      if (this.calculateDateDiff(customer.lastVisit) <= limitHeated) {
+    const estimatedRecurrenceCycle = programDuration/estimatedVisits;
+    const limitHeated = estimatedRecurrenceCycle * 24 * 3600 * 1000;
+    const limitWarm = 2* estimatedRecurrenceCycle * 24 * 3600 * 1000;
+    
+    storage.forEach((customer, index) => {
+      if (this.calculateDateDiff(customer.purchases[0].purchaseDate) <= limitHeated) {
         customer.temperature = 'heated';
-      } else if (this.calculateDateDiff(customer.lastVisit) <= limitWarm) {
+      } else if (this.calculateDateDiff(customer.purchases[0].purchaseDate) <= limitWarm) {
         customer.temperature = 'warm';
       } else {
         customer.temperature = 'cold';
       }
-      baseSimulada[index] = customer; 
+      storage[index] = customer; 
     });
 
-  // Salvando no storage
-  localStorage.base = JSON.stringify(baseSimulada);
-  localStorage.programa = JSON.stringify(programaFidelidade);
-  localStorage.configNegocio = JSON.stringify(configNegocio);
-
+    // Salvando no storage
+    localStorage.base = JSON.stringify(storage);
 
     return(
       <div>     
