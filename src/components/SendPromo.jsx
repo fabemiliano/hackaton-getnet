@@ -26,13 +26,13 @@ export class SendPromo extends Component {
       <div>
         <p>Lista de Contatos</p>
         {listOfContacts.map(({ whatsapp, name }) => (
-          <div>
-          <label class="checkbox-label">
-            <input className="checkbox-control" type="checkbox" />
-            <div class="custom-checkbox" />
-          </label>
-          <span>{`${whatsapp} - ${name}`}</span>
-        </div>
+          <div className="client-list-item">
+            <label class="checkbox-label">
+              <input className="checkbox-control" type="checkbox" />
+              <div class="custom-checkbox" />
+            </label>
+            <span>{`${whatsapp} - ${name}`}</span>
+          </div>
         ))}
       </div>
     );
@@ -40,10 +40,10 @@ export class SendPromo extends Component {
 
   static renderListToSendByEmail(listOfEmails) {
     return (
-      <div>
+      <div className="client-list-item">
         <p><b>Lista de Contatos</b></p>
         {listOfEmails.map(({ email, name }) => (
-          <div>
+          <div className="client-list-item">
             <label class="checkbox-label">
               <input className="checkbox-control" type="checkbox" />
               <div class="custom-checkbox" />
