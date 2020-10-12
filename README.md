@@ -21,9 +21,9 @@ registradas pelo aplicativo gerando a base de dados.
 - Tela de Configuração de Campanhas de Fidelização:
   - São definidas as configurações da campanha como período e metas de consumo
 - Tela de Cadastro de Clientes:
- - São registradas as informações como cpf, whatsapp e email
+  - São registradas as informações como cpf, whatsapp e email
 - Tela de Pagamentos:
- - Ao inserir o cpf os dados da compra fica salva no cadastro do usuário
+  - Ao inserir o cpf os dados da compra fica salva no cadastro do usuário
 - Tela de Feedback de Compras:
   - Mostra se a venda foi concluída, valor consumido no total e valor restante para atingir a meta da campanha de fidelização
 - Dashboard de Controle de vendas:
