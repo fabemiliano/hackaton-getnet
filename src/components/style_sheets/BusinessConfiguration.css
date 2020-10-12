@@ -1,0 +1,10 @@
+.business-config-form-item {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  margin-top: 8vh;
+}
+
+.business-config-page .btn {
+  margin-top: 6vh;
+}

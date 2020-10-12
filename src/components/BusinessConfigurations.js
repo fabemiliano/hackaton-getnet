@@ -1,4 +1,5 @@
 import React from 'react';
+import './style_sheets/BusinessConfiguration.css'
 
 class BusinessConfigurations extends React.Component {
   constructor() {
@@ -26,18 +27,18 @@ class BusinessConfigurations extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="business-config-page">
         <h1>Configurações do Negócio</h1>
         <form>
-          <div>
+          <div className="business-config-form-item">
             <label htmlFor="recurrenceCycle">Ciclo médio de recorrência</label>
-            <input id="recurrenceCycle" type="number" placeholder="Insira o número de dias" value={this.state.recurrenceCycle} name="recurrenceCycle" onChange={this.handleState} />
+              <input className="form-control" id="recurrenceCycle" type="number" placeholder="Insira o número de dias" value={this.state.recurrenceCycle} name="recurrenceCycle" onChange={this.handleState} />
           </div>
-          <div>
-            <label htmlFor="averageTicket">Tcket médio</label>
-            <input id="averageTicket" type="number" placeholder="Insira o valor em reais" value={this.state.averageTicket} name="averageTicket" onChange={this.handleState} />
+          <div className="business-config-form-item">
+            <label htmlFor="averageTicket">Ticket médio</label>
+            <input className="form-control" id="averageTicket" type="number" placeholder="Insira o valor em reais" value={this.state.averageTicket} name="averageTicket" onChange={this.handleState} />
           </div>
-          <button onClick={this.saveOnStorage}>Salvar</button>
+          <button className="btn" onClick={this.saveOnStorage}>Salvar</button>
         </form>
       </div>
     );
