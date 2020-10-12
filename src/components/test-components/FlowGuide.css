@@ -1,0 +1,13 @@
+#navigation-flow {
+  position: fixed;
+  bottom: 0;
+  width: 50px;
+  height: 50px;
+  top: 450px;
+  right: 350px;
+  border: 1px #de3131 solid;
+  display: flex;
+  flex-flow: column nowrap;
+  color: white;
+  background-color: #de3131;
+}

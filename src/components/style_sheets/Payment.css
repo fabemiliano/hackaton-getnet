@@ -3,11 +3,19 @@
 }
 
 .purchase-info .btn {
-  margin-top: 5vh;
+  margin-top: 1vh;
 }
 
-.cpf-register-container .footer-menu-item {
-  margin-right: 2vh;
+.cpf-register-footer {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+.cpf-register-footer .btn{
+  margin-right: 5px;
 }
 
 input {

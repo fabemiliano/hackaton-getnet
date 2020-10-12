@@ -7,7 +7,7 @@ function savePurchaseInfo(purchaseValue, cpf) {
   const storage = JSON.parse(localStorage.getItem('customerPurchases'));
   const user = storage.filter((e) => e.cpf === cpf)[0];
   if (!user) return { message: 'not found' };
-  const newUserInfo = { ...user, purchases: [...user.purchases, { purchaseValue, purchaseDate: (new Date().toISOString()) }] };
+  const newUserInfo = { ...user, purchases: [...user.purchases, { purchaseValue: Number(purchaseValue), purchaseDate: (new Date().toISOString()) }] };
   const newStorage = [...storage.filter((e) => e.cpf !== cpf), newUserInfo];
   localStorage.setItem('customerPurchases', JSON.stringify(newStorage));
   return { message: 'ok' };
@@ -91,9 +91,11 @@ class Payment extends Component {
         {paymentInfoScreen && this.renderPurchaseInfo(purchaseValue, cpf)}
         {notFound && (
           <div className="cpf-register-container">
-            <p>CPF não cadastrado. Deseja cadatrar?</p>
-            <button class="btn footer-menu-item " type="button" onClick={() => this.setState({ redirectToRegister: true })}>Sim</button>
-            <button class="btn footer-menu-item " type="button" onClick={() => this.setState({ feedBackScreen: true })}>Não</button>
+            <p>CPF não cadastrado. Deseja cadastrar?</p>
+            <div className="cpf-register-footer">
+              <button class="btn footer-menu-item " type="button" onClick={() => this.setState({ redirectToRegister: true })}>Sim</button>
+              <button class="btn footer-menu-item " type="button" onClick={() => this.setState({ feedBackScreen: true })}>Não</button>
+            </div>
           </div>
         )}
         {feedBackScreen && <Redirect to="/feedback" />}

@@ -2,9 +2,13 @@
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
-  margin-top: 8vh;
+  margin-top: 6vh;
 }
 
 .business-config-page .btn {
-  margin-top: 6vh;
+  margin-top: 4vh;
+}
+
+.business-config-page .btn:hover {
+  cursor: pointer;
 }

@@ -36,11 +36,6 @@ class HomePage extends Component {
           <input placeholder="Insira seu CPF" onChange={this.handleChange} className='form-control' />
           <input type="button" value="Comprar!" className="btn"/>
         </div>
-        <button className="btn footer-menu-item">
-          <Link to="/clientsList">
-            Lista de Clientes
-          </Link>
-        </button>
       </section>
     )
   }

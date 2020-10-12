@@ -12,6 +12,8 @@ export {default as Customer} from './Customer';
 export {default as CustomerManagement} from './CustomerManagement';
 export {default as Notifier} from './Notifier';
 export {default as ProgramConfiguration} from './ProgramConfiguration.js';
+export {default as DashBoard} from './DashBoard.jsx';
+export {default as Footer} from './Footer.jsx';
 
 
 

@@ -21,7 +21,7 @@ class ClientsList extends Component {
   render() {
     return (
       <section className='client-list-page'>
-        <Link to="/">
+        <Link to="/dashboard">
           Voltar
         </Link>
         <h1> Lista de clientes</h1>

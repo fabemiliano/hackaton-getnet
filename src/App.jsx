@@ -1,12 +1,13 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import './style_sheets_general/buttons.css'
 import './style_sheets_general/inputs.css'
 import './style_sheets_general/links.css'
 import './App.css'
-import {FeedbackPage, UserRegister, HomePage, ClientsList, Payment, SendPromo, Settings, CustomerManagement, Notifier, BusinessConfigurations} 
+import {FeedbackPage, UserRegister, HomePage, ClientsList, Payment, SendPromo, Settings, CustomerManagement, Notifier, BusinessConfigurations, DashBoard, Footer} 
 from './components';
 import ProgramConfigurations from './components/ProgramConfiguration';
+
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <section className='mobile-simulated-page'>
         <BrowserRouter>
           <Switch>
+            <Route exact path="/dashboard" component={DashBoard} />
             <Route exact path="/register" component={UserRegister} />
             <Route exact path="/payment" component={Payment} />
             <Route exact path="/feedback" component={FeedbackPage} />
@@ -26,6 +28,7 @@ function App() {
             <Route exact path="/program-configuration" component={ ProgramConfigurations } />
             <Route exact path="/" component={HomePage} />
           </Switch>
+          <Footer />
         </BrowserRouter>
      </section>
     </main>

@@ -1,5 +1,6 @@
 import React from 'react';
-import './style_sheets/BusinessConfiguration.css'
+import './style_sheets/BusinessConfiguration.css';
+import Flow from './test-components/FlowGuide';
 
 class BusinessConfigurations extends React.Component {
   constructor() {
@@ -39,7 +40,9 @@ class BusinessConfigurations extends React.Component {
             <input className="form-control" id="averageTicket" type="number" placeholder="Insira o valor em reais" value={this.state.averageTicket} name="averageTicket" onChange={this.handleState} />
           </div>
           <button className="btn" onClick={this.saveOnStorage}>Salvar</button>
+          <Flow path="/program-configuration"/>
         </form>
+        
       </div>
     );
   }
