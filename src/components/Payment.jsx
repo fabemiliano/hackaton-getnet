@@ -31,7 +31,7 @@ class Payment extends Component {
     return (
       <div>
         <p>Insira o Cartão</p>
-        <button type="button" onClick={() => this.setState({ insertCardScreen: false, creditOrDebitScreen: true })}>Ok</button>
+        <button type="button" className="btn" onClick={() => this.setState({ insertCardScreen: false, creditOrDebitScreen: true })}>Ok</button>
       </div>
     );
   }
