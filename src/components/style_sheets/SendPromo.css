@@ -1,0 +1,53 @@
+.promoinfo-page {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items: center;
+  max-height: 100%;
+  width: 100%;
+}
+
+.logo {
+  margin-bottom: 3vh;
+}
+
+.sendpromo-textarea {
+  width: 100%;
+  height: 25vh;
+  border-bottom: 1px solid #ccc;
+  border-radius: 0;
+  margin-top: 6vh;
+}
+
+.sendpromo-textarea:focus {
+  transition: 0.2s;
+  border: 2px solid #de3131;
+  outline: none;
+}
+
+textarea::placeholder {
+  font-size: 15px;
+  /* color: rgba(255, 255, 255, 0.4); */
+  text-transform: uppercase;
+  vertical-align: middle;
+  transform: translateY(11.5vh)
+}
+
+textarea:focus::placeholder {
+  color: transparent;
+}
+
+.buttons-section {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.client-list-item {
+  margin-top: 2vh;
+}
+
+.promoinfo-page .checkbox-label {
+  margin-right: 2vw;
+}

@@ -1,0 +1,47 @@
+#warm {
+  background-color:rgba(222, 49, 49, 0.80);
+  border-color: rgba(222, 49, 49, 0.80);
+
+}
+
+#cold {
+  background-color: rgba(222, 49, 49, 0.6);
+  border-color: rgba(222, 49, 49, 0.6);
+}
+
+.footer-menu-item:hover {
+  cursor: pointer;
+}
+
+.footer-menu-item:focus {
+  outline: none;
+}
+
+.footer-menu-item:active{
+  background-color: white;
+  color: #de3131;
+}
+
+.customer-grid {
+  display: flex;
+  flex-flow: row wrap;
+  max-height: 48.5vh;
+  overflow-y: scroll;
+  justify-content: space-around;
+}
+
+.customer-grid h1, p {
+  margin: 13px 0; 
+}
+
+/* .customer-heated {
+  background-color: green;
+}
+
+.customer-warm {
+  background-color: rgba(0, 0, 255, 0.808);
+}
+
+.customer-cold {
+  background-color: red;
+} */

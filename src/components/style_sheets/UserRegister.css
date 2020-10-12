@@ -1,3 +1,12 @@
-/* .mobile-page {
-  margin-top: 25vh;
-} */
+form .form-control {
+  margin-top: 2vh;
+}
+
+.register-confirmation .btn {
+  margin-top: 15px;
+}
+
+.register-confirmation p {
+  margin: 10px 0 0 0;
+}
+

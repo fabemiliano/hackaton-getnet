@@ -1,0 +1,45 @@
+.settings-page-top-section {
+  max-width: 55%;
+}
+
+.settings-button-container {
+  display: flex;
+  flex-flow: column nowrap;
+  max-width: 100%;
+}
+
+.point-model-container {
+  display: flex;
+  width: 100%;
+  flex-flow: column nowrap;
+}
+
+.point-model-container .form-control {
+  margin: 10px 0;
+}
+
+.settings-btn {
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: .250rem .50rem;
+  font-size: 0.9rem;
+  border-radius: 25rem;
+  text-transform: uppercase;
+  color: #de3131;
+  border-color: #de3131;
+  margin-top: 10px;
+}
+
+.settings-btn:focus {
+  outline: none;
+}
+
+.settings-btn:active {
+  background-color: #de3131;
+  color: white;
+}
+
+.settings-input-fullsize {
+  width: 100%;
+}

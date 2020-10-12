@@ -1,13 +1,22 @@
 import React, { Component } from 'react';
-import './style_sheets/UserRegister.css'
 import HeaderImage from './HeaderImage';
+import './style_sheets/UserRegister.css'
 
-function register(name, cpf, email, whatsapp) {
+function register(name, cpf, email, whatsapp, isWhatsapp) {
   const obj = {
-    name, cpf, email, whatsapp, purchases: [],
+    name, cpf, email, whatsapp, isWhatsapp, purchases: [],
   };
   const storage = JSON.parse(localStorage.getItem('customerPurchases')) || [];
   localStorage.setItem('customerPurchases', JSON.stringify([...storage, obj]));
+}
+
+const initialState = {
+  name: '',
+  cpf: '',
+  email: '',
+  whatsapp: '',
+  isWhatsapp: true,
+  isRegistered: false,
 }
 
 export default class UserRegister extends Component {
@@ -18,6 +27,7 @@ export default class UserRegister extends Component {
       cpf: '',
       email: '',
       whatsapp: '',
+      isWhatsapp: true,
       isRegistered: false,
     };
   }
@@ -26,16 +36,17 @@ export default class UserRegister extends Component {
     const { name, value } = target;
     this.setState({
       [name]: value,
+      isRegistered: false,
     });
   }
 
   render() {
     const {
-      name, cpf, email, whatsapp, isRegistered,
+      name, cpf, email, whatsapp, isRegistered, isWhatsapp,
     } = this.state;
     return (
       <div className="mobile-page">
-        <HeaderImage size="200px"/>
+        <HeaderImage size="200px" />
         <form>
           <div>
             <input placeholder="Nome" className="form-control" name="name" onChange={(e) => this.changeInput(e)} value={name} />
@@ -44,15 +55,19 @@ export default class UserRegister extends Component {
             <input placeholder="CPF" className="form-control" name="cpf" onChange={(e) => this.changeInput(e)} value={cpf} />
           </div>
           <div>
-            <input placeholder="Whatsapp" className="form-control" name="whatsapp" onChange={(e) => this.changeInput(e)} value={whatsapp} />
+            <p>Whatsapp?</p>
+            <input type="checkbox" onChange={() => this.setState((state) => ({ isWhatsapp: !state.isWhatsapp }))} checked={isWhatsapp} />
           </div>
           <div>
             <input placeholder="E-mail" className="form-control" name="email" onChange={(e) => this.changeInput(e)} value={email} />
           </div>
-          <button className="btn btn-register-submit" type="button" onClick={() => { register(name, cpf, whatsapp, email); this.setState((state) => ({ isRegistered: !state.isRegistered })); }}>Cadastrar</button>
-          {isRegistered && <p>Usuário Cadastrado com Sucesso</p>}
+          
+          <div className="register-confirmation">
+            <button className="btn btn-register-submit" type="button" onClick={() => { register(name, cpf, whatsapp, email, isWhatsapp); this.setState((state) => ({ isRegistered: !state.isRegistered })); }}>Cadastrar</button>
+            {isRegistered && <p>Usuário Cadastrado com Sucesso</p>}
+          </div>
         </form>
-      </div>
+      </div >
     );
   }
 }

@@ -1,0 +1,31 @@
+.footer {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 5px;
+  width: 100%;
+}
+
+.footer-icon-container {
+  margin-top: 5px;
+  border: 1px #de3131 solid;
+  border-radius: 5%;
+  padding: 2px 5px;
+}
+
+.footer-icon-container:hover {
+  transition: 1s;
+  border-radius: 5%;
+  cursor:pointer;
+}
+
+.footer-icon-container {
+  border-radius: 100%;
+  background-color: #de3131;
+  padding: 7px;
+}
+
+.footer-icon {
+  filter: invert(100%);
+}

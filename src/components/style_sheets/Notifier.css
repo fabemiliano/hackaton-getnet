@@ -1,0 +1,13 @@
+.notification-input-container {
+  display: flex;
+  flex-flow: column nowrap;
+  margin-top: 8vh;
+}
+
+.notification-input-container .form-control {
+  overflow-y: hidden;
+}
+
+.notifier-page .footer-menu-item {
+  margin-top: 4vh;
+}
