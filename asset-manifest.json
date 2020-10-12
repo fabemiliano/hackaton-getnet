@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/hackaton-getnet/static/css/main.b8eb8843.chunk.css",
+    "main.js": "/hackaton-getnet/static/js/main.d4611641.chunk.js",
+    "main.js.map": "/hackaton-getnet/static/js/main.d4611641.chunk.js.map",
+    "runtime-main.js": "/hackaton-getnet/static/js/runtime-main.1c9cb7ef.js",
+    "runtime-main.js.map": "/hackaton-getnet/static/js/runtime-main.1c9cb7ef.js.map",
+    "static/js/2.459a4f09.chunk.js": "/hackaton-getnet/static/js/2.459a4f09.chunk.js",
+    "static/js/2.459a4f09.chunk.js.map": "/hackaton-getnet/static/js/2.459a4f09.chunk.js.map",
+    "index.html": "/hackaton-getnet/index.html",
+    "precache-manifest.3dcf7654c4f0b13db5950fda6e64f63b.js": "/hackaton-getnet/precache-manifest.3dcf7654c4f0b13db5950fda6e64f63b.js",
+    "service-worker.js": "/hackaton-getnet/service-worker.js",
+    "static/css/main.b8eb8843.chunk.css.map": "/hackaton-getnet/static/css/main.b8eb8843.chunk.css.map",
+    "static/js/2.459a4f09.chunk.js.LICENSE.txt": "/hackaton-getnet/static/js/2.459a4f09.chunk.js.LICENSE.txt",
+    "static/media/GetLoyal_r-w.png": "/hackaton-getnet/static/media/GetLoyal_r-w.845bd98d.png",
+    "static/media/App.css": "/hackaton-getnet/static/media/bg-white.3c95ee7c.png",
+    "static/media/card.png": "/hackaton-getnet/static/media/card.47c224eb.png",
+    "static/media/footer-dashboard.webp": "/hackaton-getnet/static/media/footer-dashboard.d5706527.webp",
+    "static/media/footer-payment.png": "/hackaton-getnet/static/media/footer-payment.1fbe9cf2.png",
+    "static/media/footer-settings.png": "/hackaton-getnet/static/media/footer-settings.ee791b3c.png",
+    "static/media/voucher_icon.png": "/hackaton-getnet/static/media/voucher_icon.e17bb9e4.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1c9cb7ef.js",
+    "static/js/2.459a4f09.chunk.js",
+    "static/css/main.b8eb8843.chunk.css",
+    "static/js/main.d4611641.chunk.js"
+  ]
+}
