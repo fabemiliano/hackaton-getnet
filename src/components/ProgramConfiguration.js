@@ -1,4 +1,7 @@
 import React from 'react';
+import HeaderImage from './HeaderImage';
+import './style_sheets/ProgramConfiguration.css';
+import { Redirect } from 'react-router-dom';
 
 class ProgramConfigurations extends React.Component {
   constructor() {
@@ -87,35 +90,40 @@ class ProgramConfigurations extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Configurações de Programa Fidelidade</h1>
-        <form>
-          <div>
-            <label htmlFor="type">Tipo do programa: </label>
-            <select id="type" type="number" value={this.state.type} name="type" onChange={this.handleState}>
-              <option >Selecione</option>
-              <option value="valor-acumulado" >Valor Acumulado</option>
-              <option value="compras-acima" >Compras Acima</option>
-              </select>
-          </div>
-          <div>
-            <label htmlFor="goal">Meta de consumo</label>
-            <input id="goal" type="number" placeholder="Insira o valor em reais" value={this.state.goal} name="goal" onChange={this.handleState} />
-          </div>
-          <div>
-            <label htmlFor="start">Data de início: </label>
-            <input id="start" type="date" value={this.state.start} name="start" onChange={this.handleState} />
-          </div>
-          <div>
-            <label htmlFor="end">Data de término: </label>
-            <input id="end" type="date" value={this.state.end} name="end" onChange={this.handleState} />
-          </div>
-          <div>
-            <label htmlFor="reward">Prêmio: </label>
-            <input id="reward" type="text" placeholder="Insira o prêmio" value={this.state.reward} name="reward" onChange={this.handleState} />
-          </div>
-          <button onClick={() => this.verifyProgramViability()}>Salvar</button>
-        </form>
+      <div className="program-config-page">
+        {this.state.alertMsg !== "" ? <Redirect to="/program-configuration-message" /> :<div>
+        <HeaderImage size="150px" />
+        <div className="program-input-container">
+          <h1>Configurações de Programa Fidelidade</h1>
+          <form className="program-input-form">
+            <div>
+              <label htmlFor="type">Tipo do programa: </label>
+              <select className="form-control" id="type" type="number" value={this.state.type} name="type" onChange={this.handleState}>
+                <option >Selecione</option>
+                <option value="valor-acumulado" >Valor Acumulado</option>
+                <option value="compras-acima" >Compras Acima</option>
+                </select>
+            </div>
+            <div>
+              <label htmlFor="goal">Meta de consumo</label>
+              <input className="form-control" id="goal" type="number" placeholder="Insira o valor em reais" value={this.state.goal} name="goal" onChange={this.handleState} />
+            </div>
+            <div>
+              <label htmlFor="start">Data de início: </label>
+              <input className="form-control" id="start" type="date" value={this.state.start} name="start" onChange={this.handleState} />
+            </div>
+            <div>
+              <label htmlFor="end">Data de término: </label>
+              <input className="form-control" id="end" type="date" value={this.state.end} name="end" onChange={this.handleState} />
+            </div>
+            <div>
+              <label htmlFor="reward">Prêmio: </label>
+              <input className="form-control" id="reward" type="text" placeholder="Insira o prêmio" value={this.state.reward} name="reward" onChange={this.handleState} />
+            </div>
+            <button className="footer-menu-item" onClick={() => this.verifyProgramViability()}>Salvar</button>
+          </form>
+        </div>
+        </div>}
         <p>{this.state.alertMsg}</p>
       </div>
     );
