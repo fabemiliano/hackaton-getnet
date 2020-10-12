@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import HeaderImage from './HeaderImage';
-import './style_sheets/FeedBackPage.css';
+
 import CountUp from 'react-countup';
+import './style_sheets/FeedBackPage.css';
 
 
 class FeedbackPage extends Component {
@@ -11,6 +12,7 @@ class FeedbackPage extends Component {
       name: '',
       lastPurchase: '',
       sumOfPurchase: 0,
+      sucessGoal: false,
     }
   }
 
@@ -22,48 +24,85 @@ class FeedbackPage extends Component {
       sumOfPurchase: purchases.reduce((acc, value) => acc + Number(value.purchaseValue), 0),
       lastPurchase: purchases.pop().purchaseValue,
       name,
-    })
+    }, () => {
+      this.changeToButtonRescueAwards();
+    });
   }
 
   renderGoal() {
     const promoSettings = JSON.parse(localStorage.getItem('promoSettings'));
     const { byPoints, byValue, pointsGoal, valueGoal, conversionFactor } = promoSettings;
     const { sumOfPurchase } = this.state;
-    console.log(sumOfPurchase);
     const convertMoneyToPoints = sumOfPurchase / conversionFactor;
-    if (byPoints) return (
+    const controlMoneyGoal = valueGoal - sumOfPurchase;
+    const controlPointsGoal = pointsGoal - convertMoneyToPoints;
+    if (byPoints) return this.chooseByPoints(controlPointsGoal, convertMoneyToPoints);
+    if (byValue) return this.chooseByMoney(controlMoneyGoal, sumOfPurchase);
+  }
+
+  chooseByPoints(controlPointsGoal, convertMoneyToPoints) {
+    const { sucessGoal } = this.state;
+    return (
       <span>
         <p className="paragraph-3 feedbackpage-line">
           Você tem {convertMoneyToPoints} pontos acumulados.
         </p>
-        <p className="paragraph-4 feedbackpage-line">
-          Faltam apenas 
-        </p>
-        <div className="counter-container">
-          <CountUp end={pointsGoal - convertMoneyToPoints} duration={5} />
-        </div>
-        <p>pontos para você resgatar seu prêmio.</p>
+        {(sucessGoal && <button>RESGATAR PRÊMIO</button>) ||
+          <div className="paragraph-4 feedbackpage-line">
+            <p>
+              Faltam apenas 
+            </p>
+            <div className="counter-container">
+              <CountUp end={controlPointsGoal} duration={5} />
+            </div>
+            <p>pontos para você resgatar seu prêmio.</p>
+          </div>
+        }
       </span>
     )
-    if (byValue) return (
+  }
+
+  chooseByMoney(controlMoneyGoal, sumOfPurchase) {
+    const { sucessGoal } = this.state;
+    return (
       <span>
         <p className="paragraph-3 feedbackpage-line">
           Você consumiu o total de R$ {sumOfPurchase} reais.
         </p>
-        <p className="paragraph-4 feedbackpage-line">
-          Faltam apenas
-        </p>
-        <div className="counter-container">
-          R$ <CountUp end={valueGoal - sumOfPurchase} duration={5} />
-        </div>
-        <p>para você resgatar seu prêmio.</p>
+        {(sucessGoal && <button>RESGATAR PRÊMIO</button>) ||
+          <div>
+            <p className="paragraph-4 feedbackpage-line">
+              Faltam apenas
+            </p>
+            <div className="counter-container">
+              R$ <CountUp end={controlMoneyGoal} duration={5} />
+            </div>
+            <p>para você resgatar seu prêmio.</p>
+          </div>
+        }
       </span>
     )
-    return (
-      <p>
-        <b>OBRIGADO!</b>
-      </p>
-    )
+  }
+
+  changeToButtonRescueAwards() {
+    const promoSettings = JSON.parse(localStorage.getItem('promoSettings'));
+    const { byPoints, byValue, pointsGoal, valueGoal, conversionFactor } = promoSettings;
+    const { sumOfPurchase } = this.state;
+    const convertMoneyToPoints = sumOfPurchase / conversionFactor;
+    if (byPoints) {
+      if (pointsGoal <= convertMoneyToPoints) {
+        this.setState({
+          sucessGoal: true,
+        })
+      }
+    }
+    if (byValue) {
+      if (valueGoal <= sumOfPurchase) {
+        this.setState({
+          sucessGoal: true,
+        })
+      }
+    }
   }
 
   render() {
