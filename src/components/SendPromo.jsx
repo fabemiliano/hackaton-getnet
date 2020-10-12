@@ -9,6 +9,7 @@ export class SendPromo extends Component {
       renderWhatsappList: false,
       listOfContacts: [],
       listOfEmails: [],
+      messageSent: false,
     };
   }
 
@@ -19,7 +20,7 @@ export class SendPromo extends Component {
     this.setState({ listOfContacts, listOfEmails });
   }
 
-  static renderListToSendByWhatsapp(listOfContacts) {
+  renderListToSendByWhatsapp(listOfContacts, messageSent) {
     return (
       <div>
         <p>Lista de Contatos</p>
@@ -29,11 +30,13 @@ export class SendPromo extends Component {
             <span>{`${whatsapp} - ${name}`}</span>
           </div>
         ))}
+        <button type="button" onClick={() => this.setState({ messageSent: true })}>Enviar Mensagem</button>
+        {messageSent && <p>Mensagem Enviada</p>}
       </div>
     );
   }
 
-  static renderListToSendByEmail(listOfEmails) {
+  renderListToSendByEmail(listOfEmails, messageSent) {
     return (
       <div>
         <p>Lista de Contatos</p>
@@ -43,6 +46,8 @@ export class SendPromo extends Component {
             <span>{`${email} - ${name}`}</span>
           </div>
         ))}
+        <button type="button" onClick={() => this.setState({ messageSent: true })}>Enviar Mensagem</button>
+        {messageSent && <p>Mensagem Enviada</p>}
       </div>
     );
   }
@@ -63,13 +68,13 @@ export class SendPromo extends Component {
 
   render() {
     const {
-      renderPromo, renderEmailList, renderWhatsappList, listOfContacts, listOfEmails,
+      renderPromo, renderEmailList, renderWhatsappList, listOfContacts, listOfEmails, messageSent
     } = this.state;
     return (
       <div>
         {renderPromo && this.renderPromoInfo()}
-        {renderEmailList && SendPromo.renderListToSendByEmail(listOfEmails)}
-        {renderWhatsappList && SendPromo.renderListToSendByWhatsapp(listOfContacts)}
+        {renderEmailList && this.renderListToSendByEmail(listOfEmails, messageSent)}
+        {renderWhatsappList && this.renderListToSendByWhatsapp(listOfContacts, messageSent)}
         {}
       </div>
     );
