@@ -23,7 +23,6 @@ function App() {
             <Route path="/customer-management/notifer/:cpf" component={ Notifier } />
             <Route path="/customer-management" component={ CustomerManagement } />
             <Route path="/business-configurations" component={ BusinessConfigurations } />
-            <Route exact path="/program-configuration-message" component={ ProgramConfigurations } />
             <Route exact path="/program-configuration" component={ ProgramConfigurations } />
             <Route exact path="/" component={HomePage} />
           </Switch>

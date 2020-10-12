@@ -15,7 +15,6 @@ class ProgramConfigurations extends React.Component {
         goal = JSON.parse(localStorage.programConfig).goal;
         type = JSON.parse(localStorage.programConfig).type;
         reward = JSON.parse(localStorage.programConfig).reward;
-        alertMsg = JSON.parse(localStorage.programConfig).alertMsg;
       }
         
     this.state = {
@@ -55,7 +54,9 @@ class ProgramConfigurations extends React.Component {
     const proportion = (recurrenceCycle-estimatedRecurrenceCycle)/recurrenceCycle * 100;
     let msg = '';
     if(proportion > 40) {
-      msg = `Está configuração do programa de fidelidade induz a um ciclo de recorrência muito curto, isto pode gerar classificações de clientes e sugestões de notificações equivocadas, portanto isto pode incomodar seus clientes seriamente! O ciclo médio de recorrência é ${recurrenceCycle} dias. Nesta configuração, o programa tentará gerar um novo ciclo de ${Math.round(estimatedRecurrenceCycle)} dias. Então como você pode ajustar? No caso você pode ajustar tanto o prazo do programa alterando a data de térmio, quanto ajustar a meta de consumo do cliente. Opção 1 - Caso queira manter a data de término e alterar somente a meta, a meta deve ser menor que R$ ${Math.round((programDuration/(0.6*recurrenceCycle))*averageTicket)}. Opção 2 - Caso queira manter a meta de consumo, a duração do programa deve ser maior que ${Math.round(0.6*recurrenceCycle*estimatedVisits)} dias.`;
+      msg = `Curto circuito! O ciclo de recorrência está muito curto (${Math.round(estimatedRecurrenceCycle)} dias).     
+      Então como você pode ajustar?
+      No caso você pode ajustar tanto o prazo do programa alterando a data de térmio, quanto ajustar a meta de consumo do cliente. Opção 1 - Caso queira manter a data de término e alterar somente a meta, a meta deve ser menor que R$ ${Math.round((programDuration/(0.6*recurrenceCycle))*averageTicket)}. Opção 2 - Caso queira manter a meta de consumo, a duração do programa deve ser maior que ${Math.round(0.6*recurrenceCycle*estimatedVisits)} dias.`;
     } else {
       msg = 'Programa cadastrado com sucesso';
     }
@@ -85,13 +86,30 @@ class ProgramConfigurations extends React.Component {
   }
 
   saveOnStorage() {
-    localStorage.programConfig = JSON.stringify(this.state);
+    const {       
+      start,
+      end,
+      goal,
+      reward,
+      type,
+    } = this.state;
+    
+    const newObject = {
+      start: start,
+      end: end,
+      goal: goal,
+      reward: reward,
+      type: type,
+    }
+
+    localStorage.programConfig = JSON.stringify(newObject);
   }
 
   render() {
+    const { alertMsg } = this.state;
     return (
       <div className="program-config-page">
-        {this.state.alertMsg !== "" ? <Redirect to="/program-configuration-message" /> :<div>
+        <div>
         <HeaderImage size="150px" />
         <div className="program-input-container">
           <h1>Configurações de Programa Fidelidade</h1>
@@ -123,8 +141,8 @@ class ProgramConfigurations extends React.Component {
             <button className="footer-menu-item" onClick={() => this.verifyProgramViability()}>Salvar</button>
           </form>
         </div>
-        </div>}
-        <p>{this.state.alertMsg}</p>
+        </div>
+        {alertMsg !== "" ? alert(alertMsg) : null}
       </div>
     );
   }
