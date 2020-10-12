@@ -27,9 +27,12 @@ export class SendPromo extends Component {
         <p>Lista de Contatos</p>
         {listOfContacts.map(({ whatsapp, name }) => (
           <div>
-            <input type="checkbox" />
-            <span>{`${whatsapp} - ${name}`}</span>
-          </div>
+          <label class="checkbox-label">
+            <input className="checkbox-control" type="checkbox" />
+            <div class="custom-checkbox" />
+          </label>
+          <span>{`${whatsapp} - ${name}`}</span>
+        </div>
         ))}
       </div>
     );

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import HeaderImage from './HeaderImage';
+import './style_sheets/UserRegister.css'
 
 function register(name, cpf, email, whatsapp, isWhatsapp) {
   const obj = {
