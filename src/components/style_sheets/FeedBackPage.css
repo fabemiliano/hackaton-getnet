@@ -12,8 +12,8 @@
   overflow: hidden;
 }
 
-.feedback-page .feedbackpage-line {
-  margin-top: 4vh;
+.mobile-simulated-page .feedbackpage-line {
+  margin-top: 25px;
 }
 
 .paragraph-1 {
@@ -48,8 +48,20 @@
   color: white;
   font-size: 1.3em;
   font-weight: bold;
+  margin: auto;
 }
 
-.logo {
+.feedback-page .logo {
+  margin-top: 5vh;
+}
+
+.feedback-bottom-container {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.feedback-bottom-container .btn{
   margin-top: 5vh;
 }

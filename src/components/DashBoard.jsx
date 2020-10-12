@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import BarChart from './BarChart';
+import { Link } from 'react-router-dom';
 
 export class DashBoard extends Component {
   constructor(props) {

@@ -1,0 +1,10 @@
+.buy-option-container {
+  display: flex;
+  flex-flow: column nowrap;
+  margin-top: 5vh;
+  margin-bottom: 8vh;
+}
+
+.buy-option-container input {
+  margin-top: 4vh;
+}

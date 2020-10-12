@@ -6,9 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import storage, { promoSettings } from './services/seeder';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <App />,
   document.getElementById('root'),
 );
 

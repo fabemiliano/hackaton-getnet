@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import './style_sheets/SendPromo.css'
+import HeaderImage from './HeaderImage';
 
 export class SendPromo extends Component {
   constructor(props) {
@@ -25,8 +27,11 @@ export class SendPromo extends Component {
       <div>
         <p>Lista de Contatos</p>
         {listOfContacts.map(({ whatsapp, name }) => (
-          <div>
-            <input type="checkbox" />
+          <div className="client-list-item">
+            <label class="checkbox-label">
+              <input className="checkbox-control" type="checkbox" />
+              <div class="custom-checkbox" />
+            </label>
             <span>{`${whatsapp} - ${name}`}</span>
           </div>
         ))}
@@ -38,11 +43,14 @@ export class SendPromo extends Component {
 
   renderListToSendByEmail(listOfEmails, messageSent) {
     return (
-      <div>
-        <p>Lista de Contatos</p>
+      <div className="client-list-item">
+        <p><b>Lista de Contatos</b></p>
         {listOfEmails.map(({ email, name }) => (
-          <div>
-            <input type="checkbox" />
+          <div className="client-list-item">
+            <label class="checkbox-label">
+              <input className="checkbox-control" type="checkbox" />
+              <div class="custom-checkbox" />
+            </label>
             <span>{`${email} - ${name}`}</span>
           </div>
         ))}
@@ -55,12 +63,12 @@ export class SendPromo extends Component {
   renderPromoInfo() {
     return (
       <div>
-        <p>Digite o conteúdo a ser Enviado</p>
-        <textarea />
+        <label htmlFor="promo-send"><b>Envie uma promoção:</b></label>
+        <textarea className="sendpromo-textarea" placeholder="Digite o conteúdo a ser enviado" id="promo-send" />
         <p>Enviar por</p>
-        <div>
-          <button type="button" onClick={() => this.setState({ renderPromo: false, renderEmailList: true })}>Email</button>
-          <button type="button" onClick={() => this.setState({ renderPromo: false, renderWhatsappList: true })}>Whatsapp</button>
+        <div className="buttons-section">
+          <button type="button" className="btn" onClick={() => this.setState({ renderPromo: false, renderEmailList: true })}>Email</button>
+          <button type="button" className="btn" onClick={() => this.setState({ renderPromo: false, renderWhatsappList: true })}>Whatsapp</button>
         </div>
       </div>
     );
@@ -71,7 +79,8 @@ export class SendPromo extends Component {
       renderPromo, renderEmailList, renderWhatsappList, listOfContacts, listOfEmails, messageSent
     } = this.state;
     return (
-      <div>
+      <div className="promoinfo-page">
+        <HeaderImage size="150px" />
         {renderPromo && this.renderPromoInfo()}
         {renderEmailList && this.renderListToSendByEmail(listOfEmails, messageSent)}
         {renderWhatsappList && this.renderListToSendByWhatsapp(listOfContacts, messageSent)}

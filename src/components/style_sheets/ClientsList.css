@@ -1,0 +1,51 @@
+.client-list-page {
+  margin-top: -5vh;
+}
+
+.customers-grid {
+  display: flex;
+  flex-flow: row wrap;
+  margin: auto;
+  max-width: 100%;
+  justify-content: space-around;
+}
+
+.customer-container {
+  margin-top: 5px;
+  border: 1px #de3131 solid;
+  border-radius: 5%;
+  padding: 2px 5px;
+}
+
+.customer-container:hover {
+  transition: 1s;
+  border: 4px #de3131 solid;
+  border-radius: 5%;
+}
+
+.customer-container h3 {
+  margin: 14px;
+}
+
+.client-wallet {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.wallet-icon-container {
+  border-radius: 100%;
+  background-color: #de3131;
+  padding: 3px;
+}
+
+.wallet-icon {
+  filter: invert(100%);
+}
+
+@keyframes client-container {
+  0%   {border: -50vw; color: white;}
+  100% {border: 0vw;}
+}

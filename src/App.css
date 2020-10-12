@@ -20,6 +20,15 @@
   align-items: center;
 }
 
+.mobile-simulated-page {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  height: 60%;
+  width: 70%;
+  justify-content: space-between;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -44,6 +53,40 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.footer-menu-item {
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: .250rem .50rem;
+  line-height: 1;
+  border-radius: 25rem;
+  text-transform: uppercase;
+  color: #de3131;
+  border-color: #de3131;
+  line-height: 1em;
+  background-color: #de3131;
+  color: white;
+  font-size: 0.8em;
+}
+
+.footer-menu-item:hover {
+  cursor: pointer;
+}
+
+.footer-menu-item:focus {
+  outline: none;
+}
+
+.footer-menu-item:active{
+  background-color: white;
+  color: #de3131;
+}
+
+.footer-menu-item a:-webkit-any-link {
+  cursor: pointer;
+  color: white;
 }
 
 @keyframes App-logo-spin {

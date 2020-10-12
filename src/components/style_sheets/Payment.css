@@ -16,3 +16,27 @@
     right: 50%;
   }
 }
+
+.payment-page .form-control {
+  margin-top: 0;
+}
+
+.purchase-info .btn {
+  margin-top: 1vh;
+}
+
+.cpf-register-footer {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+.cpf-register-footer .btn{
+  margin-right: 5px;
+}
+
+input {
+  text-align: center;
+}
