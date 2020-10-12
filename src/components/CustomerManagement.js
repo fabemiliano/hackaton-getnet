@@ -1,6 +1,7 @@
 import React from 'react';
 import Customer from './Customer';
 import './style_sheets/CustomerManagement.css';
+import HeaderImage from "./HeaderImage";
 
 class CustomerManagement extends React.Component {
   constructor() {
@@ -74,15 +75,18 @@ class CustomerManagement extends React.Component {
     localStorage.customerPurchases = JSON.stringify(storage);
 
     return(
-      <div>     
-          <button id="heated" onClick={this.handleState}>Aquecidos</button>
-          <button id="warm" onClick={this.handleState}>Mornos</button>
-          <button id="cold" onClick={this.handleState}>Frios</button>
-          <button id="all" onClick={this.handleState}>Todos</button>
-        <div>
-          { this.state.customersToShow.map(customer => Customer(customer))  } 
+      <section className="customer-management-page">
+        <HeaderImage size="150px" />
+        <div>     
+            <button className="footer-menu-item" id="heated" onClick={this.handleState}>Aquecidos</button>
+            <button className="footer-menu-item" id="heated" id="warm" onClick={this.handleState}>Mornos</button>
+            <button className="footer-menu-item" id="heated" id="cold" onClick={this.handleState}>Frios</button>
+            <button className="footer-menu-item" id="heated" id="all" onClick={this.handleState}>Todos</button>
+          <div className="customer-grid">
+            { this.state.customersToShow.map(customer => Customer(customer))  } 
+          </div>
         </div>
-      </div>
+      </section>
     );
   }
 }

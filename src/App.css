@@ -55,10 +55,23 @@
 }
 
 .footer-menu-item {
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: .250rem .50rem;
+  line-height: 1;
+  border-radius: 25rem;
+  text-transform: uppercase;
+  color: #de3131;
+  border-color: #de3131;
   line-height: 1em;
   background-color: #de3131;
   color: white;
   font-size: 0.8em;
+}
+
+.footer-menu-item:hover {
+  cursor: pointer;
 }
 
 .footer-menu-item:focus {
