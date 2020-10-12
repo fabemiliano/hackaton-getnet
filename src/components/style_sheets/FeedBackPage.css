@@ -46,3 +46,14 @@
 .feedback-page .logo {
   margin-top: 5vh;
 }
+
+.feedback-bottom-container {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.feedback-bottom-container .btn{
+  margin-top: 5vh;
+}

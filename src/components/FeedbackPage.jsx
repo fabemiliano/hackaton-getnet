@@ -47,7 +47,7 @@ class FeedbackPage extends Component {
         <p className="paragraph-3 feedbackpage-line">
           Você tem {convertMoneyToPoints} pontos acumulados.
         </p>
-        {(sucessGoal && <button>RESGATAR PRÊMIO</button>) ||
+        {(sucessGoal && <button className="btn">RESGATAR PRÊMIO</button>) ||
           <div className="paragraph-4 feedbackpage-line">
             <p>
               Faltam apenas 
@@ -69,7 +69,7 @@ class FeedbackPage extends Component {
         <p className="paragraph-3 feedbackpage-line">
           Você consumiu o total de R$ {sumOfPurchase} reais.
         </p>
-        {(sucessGoal && <button>RESGATAR PRÊMIO</button>) ||
+        {(sucessGoal && <button className="btn">RESGATAR PRÊMIO</button>) ||
           <div>
             <p className="paragraph-4 feedbackpage-line">
               Faltam apenas
@@ -115,10 +115,12 @@ class FeedbackPage extends Component {
         <p className="paragraph-2 feedbackpage-line">
           Muito obrigado pela preferência!
         </p>
-        <span>
-          {this.renderGoal()}
-        </span>
-        <HeaderImage size="150px"/>
+        <div className="feedback-bottom-container">
+          <span>
+            {this.renderGoal()}
+          </span>
+          <HeaderImage size="150px"/>
+        </div>
       </div>
     )
   }
