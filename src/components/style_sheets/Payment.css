@@ -1,0 +1,15 @@
+.payment-page .form-control {
+  margin-top: 0;
+}
+
+.purchase-info .btn {
+  margin-top: 5vh;
+}
+
+.cpf-register-container .footer-menu-item {
+  margin-right: 2vh;
+}
+
+input {
+  text-align: center;
+}

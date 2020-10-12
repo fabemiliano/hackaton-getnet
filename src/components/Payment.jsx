@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
+import HeaderImage from './HeaderImage';
+import './style_sheets/Payment.css'
 
 function savePurchaseInfo(purchaseValue, cpf) {
   const storage = JSON.parse(localStorage.getItem('customerPurchases'));
@@ -29,7 +31,7 @@ class Payment extends Component {
 
   renderInsertCard() {
     return (
-      <div>
+      <div className="payment-page">
         <p>Insira o Cartão</p>
         <button type="button" className="btn" onClick={() => this.setState({ insertCardScreen: false, creditOrDebitScreen: true })}>Ok</button>
       </div>
@@ -38,11 +40,11 @@ class Payment extends Component {
 
   renderCreditOrDebit() {
     return (
-      <div>
+      <div className="payment-page">
         <p>Opção</p>
         <div>
-          <button type="button" onClick={() => this.setState({ isCredit: true, creditOrDebitScreen: false, paymentInfoScreen: true })}>Crédito </button>
-          <button type="button" onClick={() => this.setState({ isCredit: false, creditOrDebitScreen: false, paymentInfoScreen: true })}>Débito </button>
+          <button className="btn" type="button" onClick={() => this.setState({ isCredit: true, creditOrDebitScreen: false, paymentInfoScreen: true })}>Crédito </button>
+          <button className="btn" type="button" onClick={() => this.setState({ isCredit: false, creditOrDebitScreen: false, paymentInfoScreen: true })}>Débito </button>
         </div>
       </div>
     );
@@ -50,16 +52,17 @@ class Payment extends Component {
 
   renderPurchaseInfo(purchaseValue, cpf) {
     return (
-      <div>
+      <div className="payment-page purchase-info">
         <div>
           <p>Digite o valor da compra</p>
-          <input onChange={(e) => this.setState({ purchaseValue: e.target.value })} value={purchaseValue} />
+          <input className="form-control" onChange={(e) => this.setState({ purchaseValue: e.target.value })} value={purchaseValue} />
         </div>
         <div>
           <p>Digite o CPF do comprador</p>
-          <input onChange={(e) => this.setState({ cpf: e.target.value })} value={cpf} />
+          <input className="form-control" onChange={(e) => this.setState({ cpf: e.target.value })} value={cpf} />
         </div>
         <button
+          className="btn"
           type="button"
           onClick={() => {
             console.log(savePurchaseInfo(purchaseValue, cpf));
@@ -82,17 +85,18 @@ class Payment extends Component {
     } = this.state;
     return (
       <div>
+        <HeaderImage size="150px" />
         {insertCardScreen && this.renderInsertCard()}
         {creditOrDebitScreen && this.renderCreditOrDebit(isCredit)}
         {paymentInfoScreen && this.renderPurchaseInfo(purchaseValue, cpf)}
         {notFound && (
-          <div>
+          <div className="cpf-register-container">
             <p>CPF não cadastrado. Deseja cadatrar?</p>
-            <button type="button" onClick={() => this.setState({ redirectToRegister: true })}>Sim</button>
-            <button type="button" onClick={() => this.setState({ feedBackScreen: true })}>Não</button>
+            <button class="btn footer-menu-item " type="button" onClick={() => this.setState({ redirectToRegister: true })}>Sim</button>
+            <button class="btn footer-menu-item " type="button" onClick={() => this.setState({ feedBackScreen: true })}>Não</button>
           </div>
         )}
-        {feedBackScreen && <Redirect to="/feedback" />}
+        {feedBackScreen && <Redirect to="/feedback-page" />}
         {redirectToRegister && <Redirect to="/register" />}
       </div>
     );
