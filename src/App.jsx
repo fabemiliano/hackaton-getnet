@@ -15,7 +15,7 @@ function App() {
           <Switch>
             <Route exact path="/register" component={UserRegister} />
             <Route exact path="/payment" component={Payment} />
-            <Route exact path="/feedback-page" component={FeedbackPage} />
+            <Route exact path="/feedback" component={FeedbackPage} />
             <Route exact path="/sendpromo" component={SendPromo} />
             <Route exact path="/settings" component={Settings} />
             <Route path="/clientsList" component={ClientsList} />

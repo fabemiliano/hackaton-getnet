@@ -96,7 +96,7 @@ class Payment extends Component {
             <button class="btn footer-menu-item " type="button" onClick={() => this.setState({ feedBackScreen: true })}>Não</button>
           </div>
         )}
-        {feedBackScreen && <Redirect to="/feedback-page" />}
+        {feedBackScreen && <Redirect to="/feedback" />}
         {redirectToRegister && <Redirect to="/register" />}
       </div>
     );
