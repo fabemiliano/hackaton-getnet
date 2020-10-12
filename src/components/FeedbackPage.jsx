@@ -24,6 +24,8 @@ class FeedbackPage extends Component {
       sumOfPurchase: purchases.reduce((acc, value) => acc + Number(value.purchaseValue), 0),
       lastPurchase: purchases.pop().purchaseValue,
       name,
+    }, () => {
+      this.changeToButtonRescueAwards();
     });
   }
 
@@ -80,6 +82,27 @@ class FeedbackPage extends Component {
         }
       </span>
     )
+  }
+
+  changeToButtonRescueAwards() {
+    const promoSettings = JSON.parse(localStorage.getItem('promoSettings'));
+    const { byPoints, byValue, pointsGoal, valueGoal, conversionFactor } = promoSettings;
+    const { sumOfPurchase } = this.state;
+    const convertMoneyToPoints = sumOfPurchase / conversionFactor;
+    if (byPoints) {
+      if (pointsGoal <= convertMoneyToPoints) {
+        this.setState({
+          sucessGoal: true,
+        })
+      }
+    }
+    if (byValue) {
+      if (valueGoal <= sumOfPurchase) {
+        this.setState({
+          sucessGoal: true,
+        })
+      }
+    }
   }
 
   render() {
