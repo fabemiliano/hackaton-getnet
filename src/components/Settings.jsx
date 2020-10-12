@@ -45,7 +45,7 @@ export class Settings extends Component {
 
   renderPointsSettings(pointsGoal, conversionFactor) {
     return (
-      <div>
+      <div className="point-model-container">
         <div>
           <p>Defina o fator de convesão:</p>
           <span>1 ponto para cada</span>
@@ -61,10 +61,10 @@ export class Settings extends Component {
     return (
       <div>
         <div>
-          <input placeholder="Qual o Produto da campanha" className="form-control settings-input-fullsize" onChange={(e) => { this.setState({ item: e.target.value }); }} value={item} />
+          <input placeholder="Qual o produto da campanha" className="form-control settings-input-fullsize" onChange={(e) => { this.setState({ item: e.target.value }); }} value={item} />
         </div>
         <div>
-          <input placeholder="Defina o número de items da Campanha" className="form-control settings-input-fullsize"onChange={(e) => { this.setState({ itemGoal: e.target.value }); }} value={itemGoal} />
+          <input placeholder="Qual a meta de nº de produtos?" className="form-control settings-input-fullsize"onChange={(e) => { this.setState({ itemGoal: e.target.value }); }} value={itemGoal} />
         </div>
       </div>
     );
@@ -75,7 +75,7 @@ export class Settings extends Component {
       byItems, byValue, byPoints, valueGoal, pointsGoal, conversionFactor, item, itemGoal,
     } = this.state;
     return (
-      <div>
+      <div className="settings-page-top-section">
         {this.renderScoresDefinition()}
         {byValue && this.renderValueSettings(valueGoal)}
         {byPoints && this.renderPointsSettings(pointsGoal, conversionFactor)}

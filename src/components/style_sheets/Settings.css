@@ -1,7 +1,21 @@
+.settings-page-top-section {
+  max-width: 55%;
+}
+
 .settings-button-container {
   display: flex;
   flex-flow: column nowrap;
   max-width: 100%;
+}
+
+.point-model-container {
+  display: flex;
+  width: 100%;
+  flex-flow: column nowrap;
+}
+
+.point-model-container .form-control {
+  margin: 10px 0;
 }
 
 .settings-btn {
