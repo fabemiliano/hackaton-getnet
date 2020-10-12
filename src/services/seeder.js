@@ -117,6 +117,6 @@ export const promoSettings = {
   conversionFactor: 10,
   pointsGoal: 20,
   valueGoal: 200,
-}
+};
 
 export default storage;

@@ -1,68 +1,41 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# GetLoyal
 
-## Available Scripts
+<img src="./getloyal.png">
 
-In the project directory, you can run:
+GetLoyal é um aplicativo que foi desenvolvido durante o Hackaton Empreenda GetNet 2020 por 5 estudantes
+da Trybe: Cleyton Oliveira, Fabiano Emiliano, Leandro Parisi, Luciano Scalfone, Paulo Volpin.
 
-### `yarn start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Essa aplicação visa melhorar a venda de pequenos e micro empreendedores por meio de uma ferramenta que 
+possa armazenar dados dos clientes e de consumo de forma a estreitar as relações com os consumidores e
+gerar relatórios gerenciais facilitando a criação de campanhas de fidelização, envio de mensagens em massa
+e maior controle das vendas.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+O aplicativo seria disponibilizado na getStore e as vendas no cartão pela maquininha seriam automaticamente
+registradas pelo aplicativo gerando a base de dados.
 
-### `yarn test`
+## Features da Aplicação
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Tela Principal:
+  - Direciona para as funcionalides do aplicativo
+- Tela de Configuração de Campanhas de Fidelização:
+  - São definidas as configurações da campanha como período e metas de consumo
+- Tela de Cadastro de Clientes:
+ - São registradas as informações como cpf, whatsapp e email
+- Tela de Pagamentos:
+ - Ao inserir o cpf os dados da compra fica salva no cadastro do usuário
+- Tela de Feedback de Compras:
+  - Mostra se a venda foi concluída, valor consumido no total e valor restante para atingir a meta da campanha de fidelização
+- Dashboard de Controle de vendas:
+  - Trata o banco de dados e demonstra por meio de texto e gráfico os resultados obtidos com a venda
+- Dashboard de Controle de Consumo de clientes:
 
-### `yarn build`
+- Disparo de Mensagens via e-mail ou whatsapp:
+  - Permite o envio de mensanges como informações sobre horário de funcionamento ou promoções por meio de disparos automático para os e-mails e número de whatsapp selecionados
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Tecnologias Utilizadas
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+A proposta apresentada é de um aplicativo que rode no POS Android da Getnet.
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Para fins de prototipação o aplicativo foi feito em React JS, com auxílio de libs externas tais quais: [Recharts](https://recharts.org/en-US/) e [Count Up](https://www.npmjs.com/package/react-countup)
