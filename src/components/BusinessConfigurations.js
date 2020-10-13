@@ -5,9 +5,17 @@ import Flow from './test-components/FlowGuide';
 class BusinessConfigurations extends React.Component {
   constructor() {
     super();
+    let averageTicket = '';
+    let recurrenceCycle = '';
+
+    if(localStorage.businessConfig) {
+      averageTicket = JSON.parse(localStorage.businessConfig).averageTicket;
+      recurrenceCycle = JSON.parse(localStorage.businessConfig).recurrenceCycle;
+    }
+
     this.state = {
-      averageTicket: '',
-      recurrenceCycle: '',
+      averageTicket: averageTicket,
+      recurrenceCycle: recurrenceCycle,
     };
     this.saveOnStorage = this.saveOnStorage.bind(this);
     this.handleState = this.handleState.bind(this);
@@ -39,7 +47,7 @@ class BusinessConfigurations extends React.Component {
             <label htmlFor="averageTicket">Ticket médio</label>
             <input className="form-control" id="averageTicket" type="number" placeholder="Insira o valor em reais" value={this.state.averageTicket} name="averageTicket" onChange={this.handleState} />
           </div>
-          <button className="btn" onClick={this.saveOnStorage}>Salvar</button>
+          {(localStorage.businessConfig) ? '' : <button className="btn" onClick={this.saveOnStorage}>Salvar</button> }
           <Flow path="/program-configuration"/>
         </form>
         

@@ -2,6 +2,7 @@ import React from 'react';
 import Customer from './Customer';
 import './style_sheets/CustomerManagement.css';
 import HeaderImage from "./HeaderImage";
+import FlowBack from './test-components/FlowBackGuide';
 
 class CustomerManagement extends React.Component {
   constructor() {
@@ -18,14 +19,13 @@ class CustomerManagement extends React.Component {
   }
 
   calculateDateDiff(pastDate) {
-    const actualDate = new Date();
-  
     const dataStamp = pastDate.split('-');
-    const lastVisitDate = new Date();
-    lastVisitDate.setDate(dataStamp[2]);
-    lastVisitDate.setMonth(dataStamp[1]);
-    lastVisitDate.setYear(dataStamp[0]);
-    const diff = actualDate.getTime() - lastVisitDate.getTime();
+    let lastVisitDate = new Date();
+    lastVisitDate.setDate(parseInt(dataStamp[2]));
+    lastVisitDate.setMonth(parseInt(dataStamp[1])-1);
+    lastVisitDate.setYear(parseInt(dataStamp[0]));
+    const diff = Date.now() - lastVisitDate.getTime();
+    // alert(Date.now())
     return diff;
   }
 
@@ -33,8 +33,8 @@ class CustomerManagement extends React.Component {
 
     let storage = JSON.parse(localStorage.customerPurchases);
 
-    const programConfig = JSON.parse(localStorage.programConfig) || {goal: ''};
-    const businessConfig = JSON.parse(localStorage.businessConfig) || {start: '', end: ''};
+    const programConfig = JSON.parse(localStorage.programConfig);
+    const businessConfig = JSON.parse(localStorage.businessConfig);
 
     // Customer Filters Heated / Warm / Cold
     const { goal } = programConfig;
@@ -44,26 +44,26 @@ class CustomerManagement extends React.Component {
     
     const endDateComponents = end.split('-');
     let newEndDate = new Date();
-    newEndDate.setDate(endDateComponents[2]);
-    newEndDate.setMonth(endDateComponents[1]-1);
-    newEndDate.setYear(endDateComponents[0]);
+    newEndDate.setDate(parseInt(endDateComponents[2]));
+    newEndDate.setMonth(parseInt(endDateComponents[1])-1);
+    newEndDate.setYear(parseInt(endDateComponents[0]));
     end = newEndDate;
     const startDateComponents = start.split('-');
     let newStartDate = new Date();
-    newStartDate.setDate(startDateComponents[2]);
-    newStartDate.setMonth(startDateComponents[1]-1);
-    newStartDate.setYear(startDateComponents[0]);
+    newStartDate.setDate(parseInt(startDateComponents[2]));
+    newStartDate.setMonth(parseInt(startDateComponents[1])-1);
+    newStartDate.setYear(parseInt(startDateComponents[0]));
     start = newStartDate;
     const programDuration = (end.getTime() - start.getTime())/(24*3600*1000);
 
     const estimatedRecurrenceCycle = programDuration/estimatedVisits;
-    const limitHeated = estimatedRecurrenceCycle * 24 * 3600 * 1000;
-    const limitWarm = 2* estimatedRecurrenceCycle * 24 * 3600 * 1000;
+    const limitHeated = parseInt(estimatedRecurrenceCycle) * 24 * 3600 * 1000;
+    const limitWarm = 2* parseInt(estimatedRecurrenceCycle) * 24 * 3600 * 1000;
     
     storage.forEach((customer, index) => {
-      if (this.calculateDateDiff(customer.purchases[0].purchaseDate) <= limitHeated) {
+      if (this.calculateDateDiff(customer.purchases[customer.purchases.length-1].purchaseDate) <= limitHeated) {
         customer.temperature = 'heated';
-      } else if (this.calculateDateDiff(customer.purchases[0].purchaseDate) <= limitWarm) {
+      } else if (this.calculateDateDiff(customer.purchases[customer.purchases.length-1].purchaseDate) <= limitWarm) {
         customer.temperature = 'warm';
       } else {
         customer.temperature = 'cold';
@@ -86,6 +86,7 @@ class CustomerManagement extends React.Component {
             { this.state.customersToShow.map(customer => Customer(customer))  } 
           </div>
         </div>
+        <FlowBack path="/dashboard"/>
       </section>
     );
   }

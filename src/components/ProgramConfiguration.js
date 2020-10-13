@@ -1,7 +1,7 @@
 import React from 'react';
 import HeaderImage from './HeaderImage';
 import './style_sheets/ProgramConfiguration.css';
-import { Redirect } from 'react-router-dom';
+import FlowBack from './test-components/FlowBackGuide';
 
 class ProgramConfigurations extends React.Component {
   constructor() {
@@ -101,9 +101,8 @@ class ProgramConfigurations extends React.Component {
       reward: reward,
       type: type,
     }
-    console.log(newObject)
+
     localStorage.programConfig = JSON.stringify(newObject);
-    console.log(localStorage.programConfig)
   }
 
   render() {
@@ -139,11 +138,12 @@ class ProgramConfigurations extends React.Component {
               <label htmlFor="reward">Prêmio: </label>
               <input className="form-control" id="reward" type="text" placeholder="Insira o prêmio" value={this.state.reward} name="reward" onChange={this.handleState} />
             </div>
-            <button className="footer-menu-item" onClick={() => this.verifyProgramViability()}>Salvar</button>
+            {(localStorage.programConfig) ? '' : <button className="footer-menu-item" onClick={() => this.verifyProgramViability()}>Salvar</button> }
           </form>
         </div>
         </div>
         {alertMsg !== "" ? alert(alertMsg) : null}
+        <FlowBack path="/business-configurations"/>
       </div>
     );
   }

@@ -28,7 +28,7 @@ function App() {
   return (
     <main className="App">
       <section className="mobile-simulated-page">
-        <BrowserRouter basename="/hackaton-getnet">
+        <BrowserRouter>
           <Switch>
             <Route exact path="/dashboard" component={DashBoard} />
             <Route exact path="/register" component={UserRegister} />
@@ -36,10 +36,10 @@ function App() {
             <Route exact path="/feedback" component={FeedbackPage} />
             <Route exact path="/sendpromo" component={SendPromo} />
             <Route exact path="/settings" component={Settings} />
-            <Route exact path="/clientsList" component={ClientsList} />
-            <Route exact path="/customer-management/notifer/:cpf" component={Notifier} />
-            <Route exact path="/customer-management" component={CustomerManagement} />
-            <Route exact path="/business-configurations" component={BusinessConfigurations} />
+            <Route path="/clientsList" component={ClientsList} />
+            <Route path="/customer-management/notifer/:cpf" component={Notifier} />
+            <Route path="/customer-management" component={CustomerManagement} />
+            <Route path="/business-configurations" component={BusinessConfigurations} />
             <Route exact path="/program-configuration" component={ProgramConfigurations} />
             <Route exact path="/" component={HomePage} />
           </Switch>

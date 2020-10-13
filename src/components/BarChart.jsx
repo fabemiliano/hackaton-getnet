@@ -23,6 +23,7 @@ function calculateDailySales(data) {
     }
     return [...acc, e]
   }, []);
+  console.log(dailySales)
   let dailySalesObject = {}
   dailySales.forEach(e => {
     dailySalesObject[e.date] = e.value

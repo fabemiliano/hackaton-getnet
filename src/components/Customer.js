@@ -10,11 +10,19 @@ function Customer(customer) {
   const { goal } = JSON.parse(localStorage.programConfig);
   const amount = purchases.reduce((sum, purchase) => sum + purchase.purchaseValue, 0);
   const goalPercentage = Math.round(amount/goal * 100);
+  let colorBackground;
+  if(temperature === 'cold') {
+    colorBackground = 'red';
+  } else if (temperature === 'heated') {
+    colorBackground = 'green';
+  } else {
+    colorBackground = 'blue';
+  }
   
   return (
-    <div class="customer-container">
+    <div className="customer-container" style={{backgroundColor: colorBackground}}>
       <Link to={`/customer-management/notifer/${cpf}`} style={{textDecoration: 'none', color: 'black'}}> 
-      <div key={cpf} className={`customer-${temperature}`}>
+      <div key={cpf}>
         <h1>{name}</h1>
         <p>{ cpf }</p>
         <div className="client-wallet">

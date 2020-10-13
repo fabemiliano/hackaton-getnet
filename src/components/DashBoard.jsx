@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import BarChart from './BarChart';
-import { Link } from 'react-router-dom';
-import Flow from '../components/test-components/FlowGuide'
+import Flow from './test-components/FlowGuide';
 
 export class DashBoard extends Component {
   constructor(props) {
@@ -59,7 +58,7 @@ export class DashBoard extends Component {
         )}
         <p>Gráfico de Venda Diário</p>
         <BarChart />
-        <Flow path={"/customer-management"}/>
+        {(localStorage.programConfig && localStorage.businessConfig) ? <Flow path="/customer-management"/> : ''}
       </div>
     );
   }
